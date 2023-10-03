@@ -9,3 +9,14 @@ C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Aplication\obj\D
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Aplication\obj\Debug\net7.0\refint\Proje1.Aplication.dll
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Aplication\obj\Debug\net7.0\Proje1.Aplication.pdb
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Aplication\obj\Debug\net7.0\ref\Proje1.Aplication.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\bin\Debug\net7.0\Proje1.Aplication.deps.json
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\bin\Debug\net7.0\Proje1.Aplication.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\bin\Debug\net7.0\Proje1.Aplication.pdb
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\Proje1.Aplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\Proje1.Aplication.AssemblyInfoInputs.cache
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\Proje1.Aplication.AssemblyInfo.cs
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\Proje1.Aplication.csproj.CoreCompileInputs.cache
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\Proje1.Aplication.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\refint\Proje1.Aplication.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\Proje1.Aplication.pdb
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Aplication\obj\Debug\net7.0\ref\Proje1.Aplication.dll

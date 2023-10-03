@@ -16,6 +16,7 @@ namespace Proje1.Domain.Entities
         public Roles Role { get; set; }
 
         public Account Account { get; set; }
+        public ICollection<RequestForm> RequestForms { get; set; }
     }
 
     public enum Roles

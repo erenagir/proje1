@@ -13,19 +13,29 @@ namespace Proje1.Persistence.Mapping
     {
         public override void ConfigureDerivedEntity(EntityTypeBuilder<RequestForm> builder)
         {
+            builder.Property(x => x.PersonId)
+                .HasColumnName("PERSON_ID")
+                 .HasColumnOrder(2);
+
             builder.Property(x => x.Name)
                 .HasColumnName("NAME")
                 .HasColumnType("nvarchar(50)")
-                .HasColumnOrder(2);
+                .HasColumnOrder(3);
             builder.Property(x => x.Detail)
                .HasColumnName("DETAİL")
                .HasColumnType("nvarchar(max)")
-               .HasColumnOrder(3);
+               .HasColumnOrder(4);
 
             builder.Property(x => x.Products)
             .HasColumnName("COMPANY_EMAİL")
             .HasColumnType("nvarchar(max)")
-            .HasColumnOrder(4);
+            .HasColumnOrder(5);
+
+            builder.HasOne(x => x.Person)
+                .WithMany(x => x.RequestForms)
+                .HasForeignKey(x => x.PersonId);
+                
+
             builder.ToTable("REQUESTFORM");
         }
     }

@@ -268,7 +268,7 @@ namespace Proje1.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("DETAİL")
-                        .HasColumnOrder(3);
+                        .HasColumnOrder(4);
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -292,15 +292,22 @@ namespace Proje1.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("NAME")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int")
+                        .HasColumnName("PERSON_ID")
                         .HasColumnOrder(2);
 
                     b.Property<string>("Products")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("COMPANY_EMAİL")
-                        .HasColumnOrder(4);
+                        .HasColumnOrder(5);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
 
                     b.ToTable("REQUESTFORM", (string)null);
                 });
@@ -316,10 +323,23 @@ namespace Proje1.Persistence.Migrations
                     b.Navigation("Person");
                 });
 
+            modelBuilder.Entity("Proje1.Domain.Entities.RequestForm", b =>
+                {
+                    b.HasOne("Proje1.Domain.Entities.Person", "Person")
+                        .WithMany("RequestForms")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
+                });
+
             modelBuilder.Entity("Proje1.Domain.Entities.Person", b =>
                 {
                     b.Navigation("Account")
                         .IsRequired();
+
+                    b.Navigation("RequestForms");
                 });
 #pragma warning restore 612, 618
         }

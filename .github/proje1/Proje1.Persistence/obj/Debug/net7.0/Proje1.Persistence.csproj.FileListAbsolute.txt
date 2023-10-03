@@ -1,0 +1,17 @@
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\bin\Debug\net7.0\Proje1.Persistence.deps.json
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\bin\Debug\net7.0\Proje1.Persistence.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\bin\Debug\net7.0\Proje1.Persistence.pdb
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\bin\Debug\net7.0\Proje1.Domain.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\bin\Debug\net7.0\Proje1.Domain.pdb
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.csproj.AssemblyReference.cache
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.AssemblyInfoInputs.cache
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.AssemblyInfo.cs
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.csproj.CopyComplete
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\refint\Proje1.Persistence.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.pdb
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\ref\Proje1.Persistence.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\bin\Debug\net7.0\Proje1.Persistence.runtimeconfig.json
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\proje1\Proje1.Persistence\obj\Debug\net7.0\Proje1.Persistence.genruntimeconfig.cache

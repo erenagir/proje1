@@ -27,13 +27,18 @@ namespace Proje1.Persistence.Mapping
                .HasColumnOrder(4);
 
             builder.Property(x => x.Products)
-            .HasColumnName("COMPANY_EMAİL")
-            .HasColumnType("nvarchar(max)")
-            .HasColumnOrder(5);
+                .HasColumnName("COMPANY_EMAİL")
+                .HasColumnType("nvarchar(max)")
+                .HasColumnOrder(5);
+
+            builder.Property(x => x.Status)
+                .HasColumnName("STATUS")
+                .HasColumnOrder(6);
 
             builder.HasOne(x => x.Person)
                 .WithMany(x => x.RequestForms)
                 .HasForeignKey(x => x.PersonId);
+
                 
 
             builder.ToTable("REQUESTFORM");

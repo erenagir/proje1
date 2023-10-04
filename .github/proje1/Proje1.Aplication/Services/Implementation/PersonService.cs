@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Proje1.Aplication.Models.Dtos.Person;
-using Proje1.Aplication.Models.RequestModels;
+using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Services.Abstraction;
 using Proje1.Aplication.Wrapper;
 using Proje1.Domain.Entities;

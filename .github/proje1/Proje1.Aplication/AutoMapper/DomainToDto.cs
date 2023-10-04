@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Proje1.Aplication.Models.Dtos.Product;
+using Proje1.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,10 @@ namespace Proje1.Aplication.AutoMapper
 {
     public class DomainToDto:Profile
     {
-
+        public DomainToDto()
+        {
+            CreateMap<Product,ProductDto>();
+        }
 
     }
 }

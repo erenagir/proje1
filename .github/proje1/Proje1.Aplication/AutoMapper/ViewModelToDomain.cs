@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Proje1.Aplication.Models.RequestModels;
+using Proje1.Aplication.Models.RequestModels.Person;
+using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,10 @@ namespace Proje1.Aplication.AutoMapper
         {
             CreateMap<ReisterVM, Person>();
             CreateMap<ReisterVM,Account>();
+
+
+            CreateMap<CreateProductVM,Product>();
+            
         }
     }
 }

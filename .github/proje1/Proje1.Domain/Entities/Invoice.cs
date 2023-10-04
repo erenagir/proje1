@@ -9,6 +9,11 @@ namespace Proje1.Domain.Entities
 {
     public class Invoice:AuditableEntity
     {
-        public string MyProperty { get; set; }
+        public DateTime InvoiceDate { get; set; }
+        public string CompanyName { get; set; }
+        public string ProductDetail { get; set; }
+      
+
+
     }
 }

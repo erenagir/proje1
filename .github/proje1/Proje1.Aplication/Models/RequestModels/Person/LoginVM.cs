@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proje1.Aplication.Models.RequestModels
+namespace Proje1.Aplication.Models.RequestModels.Person
 {
     public class LoginVM
     {

@@ -1,5 +1,5 @@
 ﻿using Proje1.Aplication.Models.Dtos.Person;
-using Proje1.Aplication.Models.RequestModels;
+using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Wrapper;
 using System;
 using System.Collections.Generic;

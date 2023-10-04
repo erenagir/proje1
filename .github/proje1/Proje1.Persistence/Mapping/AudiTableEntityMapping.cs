@@ -33,10 +33,12 @@ namespace Proje1.Persistence.Mapping
             builder.Property(x => x.ModifiedBy)
                .HasColumnName("MODIFIED_BY")
                .HasColumnType("nvarchar(20)")
+               .IsRequired(false)
                .HasColumnOrder(38);
            
             builder.Property(x => x.ModifiedDate)
                .HasColumnName("MODIFIED_DATE")
+               .IsRequired(false)
                .HasColumnOrder(39);
 
 

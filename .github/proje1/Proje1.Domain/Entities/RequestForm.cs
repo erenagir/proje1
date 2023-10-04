@@ -13,7 +13,14 @@ namespace Proje1.Domain.Entities
         public string Name { get; set; }
         public string Detail { get; set; }
         public string Products { get; set; }
-
+        public Status Status { get; set; }
         public Person Person { get; set; }
+    }
+
+    public enum Status
+    {
+        pending=1,//bekleme
+        approved,//onaylandı
+        refuse//ret 
     }
 }

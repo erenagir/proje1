@@ -158,3 +158,9 @@ C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\obj\
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\obj\Debug\net7.0\Proje1.Api.pdb
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\obj\Debug\net7.0\Proje1.Api.genruntimeconfig.cache
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\obj\Debug\net7.0\ref\Proje1.Api.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\Proje1.Aplication.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\Proje1.Utils.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\Proje1.Aplication.pdb
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\Proje1.Utils.pdb

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Proje1.Domain.Common;
 using Proje1.Domain.Entities;
 using Proje1.Persistence.Mapping;
 using System;
@@ -34,5 +35,48 @@ namespace Proje1.Persistence.Context
 
         }
 
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            //Herhangi bir kayıt işleminde yapılan işlem ekleme ise CreateDate ve CreatedBy bilgileri otomatik olarak set edilir.
+            //Herhangi bir kayıt işleminde yapılan işlem güncelleme ise ModifiedDate ve ModifiedBy bilgileri otomatik olarak set edilir.
+
+            var entries = ChangeTracker.Entries<BaseEntity>().ToList();
+
+            foreach (var entry in entries)
+            {
+                if (entry.State == EntityState.Deleted)
+                {
+                    entry.Entity.IsDeleted = true;
+                    entry.State = EntityState.Modified;
+                }
+
+                if (entry.Entity is AuditableEntity auditableEntity)
+                {
+                    switch (entry.State)
+                    {
+                        //update
+                        case EntityState.Modified:
+                            auditableEntity.ModifiedDate = DateTime.Now;
+                            auditableEntity.ModifiedBy =  "admin";
+                            break;
+                        //insert
+                        case EntityState.Added:
+                            auditableEntity.CreatedDate = DateTime.Now;
+                            auditableEntity.CreateBy = "admin";
+                            break;
+                        //delete
+                        case EntityState.Deleted:
+                            auditableEntity.ModifiedDate = DateTime.Now;
+                            auditableEntity.ModifiedBy =  "admin";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+            }
+
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
     }
 }

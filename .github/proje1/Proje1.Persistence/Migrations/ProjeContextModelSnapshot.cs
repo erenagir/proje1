@@ -117,7 +117,6 @@ namespace Proje1.Persistence.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("MODIFIED_BY")
                         .HasColumnOrder(38);
@@ -211,7 +210,6 @@ namespace Proje1.Persistence.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("MODIFIED_BY")
                         .HasColumnOrder(38);
@@ -278,7 +276,6 @@ namespace Proje1.Persistence.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("MODIFIED_BY")
                         .HasColumnOrder(38);
@@ -304,6 +301,11 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("COMPANY_EMAİL")
                         .HasColumnOrder(5);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("STATUS")
+                        .HasColumnOrder(6);
 
                     b.HasKey("Id");
 

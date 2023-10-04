@@ -1,4 +1,5 @@
 ﻿using Proje1.Aplication.Models.Dtos.Person;
+using Proje1.Aplication.Models.Dtos.Product;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Wrapper;
 using System;
@@ -13,6 +14,7 @@ namespace Proje1.Aplication.Services.Abstraction
     {
         Task<Result<bool>> Register(ReisterVM reisterVM);
         Task<Result<TokenDto>> Login(LoginVM loginVM);
+        Task<Result<List<PersonDto>>> GetAllPersons();
 
     }
 }

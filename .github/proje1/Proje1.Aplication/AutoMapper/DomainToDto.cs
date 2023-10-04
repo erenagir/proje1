@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.Dtos.Product;
 using Proje1.Domain.Entities;
 using System;
@@ -14,6 +15,7 @@ namespace Proje1.Aplication.AutoMapper
         public DomainToDto()
         {
             CreateMap<Product,ProductDto>();
+            CreateMap<Person,PersonDto>();
         }
 
     }

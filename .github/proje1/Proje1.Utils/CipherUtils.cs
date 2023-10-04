@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Proje1.Utils
 {
-    public static class CipperUtils
+    public static class CipherUtils
     {
 
-        // metni şifre
         public static string EncryptString(string key, string plainText)
         {
             byte[] iv = new byte[16];
@@ -39,7 +38,13 @@ namespace Proje1.Utils
 
             return Convert.ToBase64String(array);
         }
-        // şifre çöz
+
+        /// <summary>
+        /// Şifrelenmiş metni çözer
+        /// </summary>
+        /// <param name="key">Çözmek için kullanılacak anahtar</param>
+        /// <param name="cipherText">Şifrelenmiş metin</param>
+        /// <returns></returns>
         public static string DecryptString(string key, string cipherText)
         {
             byte[] iv = new byte[16];

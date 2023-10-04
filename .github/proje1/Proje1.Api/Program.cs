@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Proje1.Api.Filters;
 using Proje1.Aplication.AutoMapper;
 using Proje1.Aplication.Services.Abstraction;
 using Proje1.Aplication.Services.Implementation;
@@ -14,8 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new ExceptionHandlerFilter());
+});
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -56,6 +60,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddAutoMapper(typeof(DomainToDto), typeof(ViewModelToDomain));
 //service
 builder.Services.AddScoped<IProductSevice, ProductService>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 
 //db adresleme
 builder.Services.AddDbContext<ProjeContext>(opt =>

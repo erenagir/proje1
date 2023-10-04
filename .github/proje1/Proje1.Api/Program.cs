@@ -61,6 +61,8 @@ builder.Services.AddAutoMapper(typeof(DomainToDto), typeof(ViewModelToDomain));
 //service
 builder.Services.AddScoped<IProductSevice, ProductService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IRequestFormService,RequestFromService>();
+
 
 //db adresleme
 builder.Services.AddDbContext<ProjeContext>(opt =>

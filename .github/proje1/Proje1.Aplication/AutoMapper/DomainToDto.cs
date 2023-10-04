@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.Dtos.Product;
+using Proje1.Aplication.Models.Dtos.RequestForm;
 using Proje1.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Proje1.Aplication.AutoMapper
         {
             CreateMap<Product,ProductDto>();
             CreateMap<Person,PersonDto>();
+            CreateMap<RequestForm,RequestDto>();
         }
 
     }

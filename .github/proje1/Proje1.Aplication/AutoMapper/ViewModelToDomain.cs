@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Models.RequestModels.Product;
+using Proje1.Aplication.Models.RequestModels.RequestForm;
 using Proje1.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,11 @@ namespace Proje1.Aplication.AutoMapper
 
 
             CreateMap<CreateProductVM,Product>();
-            
+            CreateMap<CreateRequestVM, RequestForm>()
+                .ForMember(x => x.Status,Y=>Y.MapFrom(e=>Status.pending));
+
+
+            CreateMap<UpdateRequestVM, RequestForm>();
         }
     }
 }

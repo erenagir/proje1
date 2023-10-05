@@ -3,6 +3,7 @@ using Proje1.Aplication.Models.Dtos.Company;
 using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.Dtos.Product;
 using Proje1.Aplication.Models.RequestModels.Company;
+using Proje1.Aplication.Models.RequestModels.Invoices;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Aplication.Services.Abstraction;
@@ -12,28 +13,28 @@ using Proje1.Domain.Entities;
 namespace Proje1.Api.Controllers
 {
     [ApiController]
-    [Route("company")]
-    public class CompanyController : ControllerBase
+    [Route("invoice")]
+    public class InvoiceController : ControllerBase
     {
        
-        private readonly ICompanyService _service;
+        private readonly IInvoiceService _service;
 
-        public CompanyController(ICompanyService service)
+        public InvoiceController(IInvoiceService service)
         {
             _service = service;
         }
 
         [HttpGet("get")]
-        public async Task<ActionResult<Result<List<CompanyDto>>>> GetAllCompany()
+        public async Task<ActionResult<Result<List<CompanyDto>>>> GetAllInvoices()
         {
-          var item=  _service.GetAllCompany();
+          var item=  _service.GetAllInvoice();
           return Ok(item);
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<Result<int>>> CreateCompany(CreateCompanyVM createCompanyVM)
+        public async Task<ActionResult<Result<int>>> CreateCompany(CreateInvoiceVM createInvoiceVM)
         {
-          var item= await _service.CreateCompany(createCompanyVM);  
+          var item= await _service.CreateInvoice(createInvoiceVM);  
             return Ok(item);
         }
 

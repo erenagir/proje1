@@ -30,6 +30,7 @@ namespace Proje1.Persistence.Mapping
             builder.HasOne(x => x.Person)
               .WithMany(x => x.Reports)
               .HasForeignKey(x => x.PersonId);
+           
             builder.HasOne(x => x.Department)
               .WithMany(x => x.Reports)
               .HasForeignKey(x => x.DepartmentId);

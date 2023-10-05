@@ -11,6 +11,8 @@ namespace Proje1.Domain.Entities
     {
         public int CompanyId { get; set; }
         public string DepartmantName { get; set; }
+
+        public Company Company { get; set; }
         public  ICollection<Person> Persons { get; set; }
         public  ICollection<Report> Reports { get; set; }
     }

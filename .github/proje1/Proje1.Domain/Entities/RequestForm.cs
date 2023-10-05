@@ -17,6 +17,8 @@ namespace Proje1.Domain.Entities
         public Status Status { get; set; }
         public Person Person { get; set; }
         public Invoice Invoice { get; set; }
+
+        public ICollection<Invoice> Invoices  { get; set; }
     }
 
     public enum Status

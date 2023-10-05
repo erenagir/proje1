@@ -20,7 +20,9 @@ namespace Proje1.Persistence.Mapping
                 .HasColumnName("DEPARTMANT_NAME")
                 .HasColumnType("nvarchar(150)")
                 .HasColumnOrder(3);
-
+            builder.HasOne(x => x.Company)
+                .WithMany(x => x.Departments)
+                .HasForeignKey(x => x.CompanyId);
            
             builder.ToTable("DEPARTMENT");
         }

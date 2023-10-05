@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Proje1.Aplication.Models.Dtos.Company;
 using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.Dtos.Product;
+using Proje1.Aplication.Models.RequestModels.Company;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Aplication.Services.Abstraction;
@@ -10,39 +12,32 @@ using Proje1.Domain.Entities;
 namespace Proje1.Api.Controllers
 {
     [ApiController]
-    [Route("person")]
-    public class PersonController : ControllerBase
+    [Route("company")]
+    public class CompanyController : ControllerBase
     {
        
-        private readonly IPersonService _personService;
+        private readonly ICompanyService _service;
 
-        public PersonController(IPersonService personService)
+        public CompanyController(ICompanyService service)
         {
-            _personService = personService;
+            _service = service;
         }
 
         [HttpGet("get")]
-        public async Task<ActionResult<Result<List<ProductDto>>>> GetAllPerson()
+        public async Task<ActionResult<Result<List<CompanyDto>>>> GetAllCompany()
         {
-          var products=  _personService.GetAllPersons();
-          return Ok(products);
+          var item=  _service.GetAllCompany();
+          return Ok(item);
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<Result<bool>>> CreatePerson(ReisterVM reisterVM)
+        public async Task<ActionResult<Result<int>>> CreateCompany(CreateCompanyVM createCompanyVM)
         {
-          var item= await _personService.Register(reisterVM);  
+          var item= await _service.CreateCompany(createCompanyVM);  
             return Ok(item);
         }
 
-        [HttpPost("login")]
-        public async Task<ActionResult<Result<TokenDto>>> Login(LoginVM loginVM)
-        {
-            var item = await _personService.Login(loginVM);
-            return Ok(item);
-        }
-        
-
+      
 
     }
 }

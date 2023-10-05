@@ -17,6 +17,9 @@ namespace Proje1.Persistence.Mapping
                 .HasColumnName("COMPANY_NAME")
                 .HasColumnType("nvarchar(150)")
                 .HasColumnOrder(2);
+
+            
+
             builder.ToTable("COMPANY");
         }
     }

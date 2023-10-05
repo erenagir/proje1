@@ -8,6 +8,8 @@ namespace Proje1.Aplication.Models.Dtos.Company
 {
     public class CompanyDto
     {
+
+        public int Id { get; set; }
         public string CompanyName { get; set; }
 
     }

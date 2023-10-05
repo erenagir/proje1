@@ -28,7 +28,7 @@ namespace Proje1.Aplication.Services.Implementation
             _mapper = mapper;
         }
 
-        [ValidationBehavior(typeof(CreateCompanyValidator))]
+        [ValidationBehavior(typeof(CreateDepartmentValidator))]
         public async Task<Result<int>> CreateCompany(CreateCompanyVM createCompanyVM)
         {
             var result = new Result<int>();

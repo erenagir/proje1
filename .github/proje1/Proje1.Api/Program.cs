@@ -74,7 +74,7 @@ builder.Services.AddDbContext<ProjeContext>(opt =>
 });
 
 //validator
-builder.Services.AddValidatorsFromAssemblyContaining(typeof(CreateCompanyValidator));
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(CreateDepartmentValidator));
 
 
 var app = builder.Build();

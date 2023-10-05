@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace Proje1.Domain.Entities
 {
-    public class Account:BaseEntity
+    public class Report:BaseEntity
     {
         public int PersonId { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public int DepartmentId { get; set; }
+
+        public string detail { get; set; }
+        public DateTime Date { get; set; }
         public Person Person { get; set; }
+        public Department Department { get; set; }
+
     }
 }

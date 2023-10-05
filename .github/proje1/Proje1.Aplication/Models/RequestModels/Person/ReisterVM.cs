@@ -12,7 +12,7 @@ namespace Proje1.Aplication.Models.RequestModels.Person
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
-        public Roles Role { get; set; }
+      
         public string UserName { get; set; }
         public string Password { get; set; }
     }

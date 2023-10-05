@@ -1,10 +1,13 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Proje1.Api.Filters;
 using Proje1.Aplication.AutoMapper;
+using Proje1.Aplication.Models.RequestModels.Company;
 using Proje1.Aplication.Services.Abstraction;
 using Proje1.Aplication.Services.Implementation;
+using Proje1.Aplication.Validators.Company;
 using Proje1.Domain.Repositories;
 using Proje1.Domain.UWork;
 using Proje1.Persistence.Context;
@@ -69,6 +72,10 @@ builder.Services.AddDbContext<ProjeContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Proje1"));
 });
+
+//validator
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(CreateCompanyValidator));
+
 
 var app = builder.Build();
 

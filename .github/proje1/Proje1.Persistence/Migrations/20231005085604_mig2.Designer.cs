@@ -12,8 +12,8 @@ using Proje1.Persistence.Context;
 namespace Proje1.Persistence.Migrations
 {
     [DbContext(typeof(ProjeContext))]
-    [Migration("20231003123223_requestUpdated")]
-    partial class requestUpdated
+    [Migration("20231005085604_mig2")]
+    partial class mig2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Proje1.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Proje1.Domain.Entities.Account", b =>
+            modelBuilder.Entity("Proje1.Domain.Entities.Authority", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,6 +35,21 @@ namespace Proje1.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Accounting")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_ACCOUNTING")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("Admin")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_ADMIN")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("Approve")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_APPROVE")
+                        .HasColumnOrder(3);
+
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -42,21 +57,24 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnOrder(40)
                         .HasDefaultValueSql("0");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("PASSWORD")
-                        .HasColumnOrder(4);
-
                     b.Property<int>("PersonId")
                         .HasColumnType("int")
                         .HasColumnName("PERSON_ID")
                         .HasColumnOrder(2);
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("USERNAME")
+                    b.Property<bool>("Receive")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_RECEIVE")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("Request")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_REQUEST")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("management")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_MANAGEMENT")
                         .HasColumnOrder(3);
 
                     b.HasKey("Id");
@@ -64,7 +82,130 @@ namespace Proje1.Persistence.Migrations
                     b.HasIndex("PersonId")
                         .IsUnique();
 
-                    b.ToTable("ACCOUNTS", (string)null);
+                    b.ToTable("AUTHORITY", (string)null);
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("COMPANY_NAME")
+                        .HasColumnOrder(2);
+
+                    b.Property<bool?>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED")
+                        .HasColumnOrder(40)
+                        .HasDefaultValueSql("0");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("COMPANY", (string)null);
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int")
+                        .HasColumnName("COMPANY_ID")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("DepartmantName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("DEPARTMANT_NAME")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool?>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED")
+                        .HasColumnOrder(40)
+                        .HasDefaultValueSql("0");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("DEPARTMENT", (string)null);
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Invoice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("COMPANY_NAME")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("CreateBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("CREATE_BY")
+                        .HasColumnOrder(36);
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATE_DATE")
+                        .HasColumnOrder(37);
+
+                    b.Property<DateTime>("InvoiceDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("INVOICE_DATE")
+                        .HasColumnOrder(2);
+
+                    b.Property<bool?>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED")
+                        .HasColumnOrder(40)
+                        .HasDefaultValueSql("0");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("MODIFIED_BY")
+                        .HasColumnOrder(38);
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("MODIFIED_DATE")
+                        .HasColumnOrder(39);
+
+                    b.Property<string>("ProductDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("PRODUCT_DETAİL")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("INVOICES", (string)null);
                 });
 
             modelBuilder.Entity("Proje1.Domain.Entities.Offer", b =>
@@ -120,7 +261,6 @@ namespace Proje1.Persistence.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("MODIFIED_BY")
                         .HasColumnOrder(38);
@@ -130,8 +270,8 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("MODIFIED_DATE")
                         .HasColumnOrder(39);
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)")
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float")
                         .HasColumnName("TOTAL_PRICE")
                         .HasColumnOrder(6);
 
@@ -154,7 +294,7 @@ namespace Proje1.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(150)")
                         .HasColumnName("EMAİL")
-                        .HasColumnOrder(4);
+                        .HasColumnOrder(6);
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -167,20 +307,34 @@ namespace Proje1.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasColumnName("NAME")
-                        .HasColumnOrder(2);
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int")
-                        .HasColumnName("ROLE_ID")
-                        .HasColumnOrder(5);
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("PASSWORD")
+                        .HasColumnOrder(8);
 
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasColumnName("SURNAME")
-                        .HasColumnOrder(3);
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("USERNAME")
+                        .HasColumnOrder(7);
+
+                    b.Property<int>("departmantId")
+                        .HasColumnType("int")
+                        .HasColumnName("DEPARTMENT_ID")
+                        .HasColumnOrder(2);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("departmantId");
 
                     b.ToTable("PERSONS", (string)null);
                 });
@@ -214,7 +368,6 @@ namespace Proje1.Persistence.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("MODIFIED_BY")
                         .HasColumnOrder(38);
@@ -246,6 +399,53 @@ namespace Proje1.Persistence.Migrations
                     b.ToTable("PRODUCTS", (string)null);
                 });
 
+            modelBuilder.Entity("Proje1.Domain.Entities.Report", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DATE")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int")
+                        .HasColumnName("DEPARTMENT_ID")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool?>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED")
+                        .HasColumnOrder(40)
+                        .HasDefaultValueSql("0");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int")
+                        .HasColumnName("PERSON_ID")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("detail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("DETAİL")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("REPORTS", (string)null);
+                });
+
             modelBuilder.Entity("Proje1.Domain.Entities.RequestForm", b =>
                 {
                     b.Property<int>("Id")
@@ -273,6 +473,12 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("DETAİL")
                         .HasColumnOrder(4);
 
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InvoıceId")
+                        .HasColumnType("int");
+
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -281,7 +487,6 @@ namespace Proje1.Persistence.Migrations
                         .HasDefaultValueSql("0");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("MODIFIED_BY")
                         .HasColumnOrder(38);
@@ -308,39 +513,108 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("COMPANY_EMAİL")
                         .HasColumnOrder(5);
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("STATUS")
+                        .HasColumnOrder(6);
+
                     b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId");
 
                     b.HasIndex("PersonId");
 
                     b.ToTable("REQUESTFORM", (string)null);
                 });
 
-            modelBuilder.Entity("Proje1.Domain.Entities.Account", b =>
+            modelBuilder.Entity("Proje1.Domain.Entities.Authority", b =>
                 {
                     b.HasOne("Proje1.Domain.Entities.Person", "Person")
-                        .WithOne("Account")
-                        .HasForeignKey("Proje1.Domain.Entities.Account", "PersonId")
+                        .WithOne("Authority")
+                        .HasForeignKey("Proje1.Domain.Entities.Authority", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Department", b =>
+                {
+                    b.HasOne("Proje1.Domain.Entities.Company", null)
+                        .WithMany("Departments")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Person", b =>
+                {
+                    b.HasOne("Proje1.Domain.Entities.Department", "Department")
+                        .WithMany("Persons")
+                        .HasForeignKey("departmantId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("PERSONS_Department_DEPARTMENT_ID");
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Report", b =>
+                {
+                    b.HasOne("Proje1.Domain.Entities.Department", "Department")
+                        .WithMany("Reports")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Proje1.Domain.Entities.Person", "Person")
+                        .WithMany("Reports")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
 
                     b.Navigation("Person");
                 });
 
             modelBuilder.Entity("Proje1.Domain.Entities.RequestForm", b =>
                 {
+                    b.HasOne("Proje1.Domain.Entities.Invoice", "Invoice")
+                        .WithMany()
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Proje1.Domain.Entities.Person", "Person")
                         .WithMany("RequestForms")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Invoice");
+
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Company", b =>
+                {
+                    b.Navigation("Departments");
+                });
+
+            modelBuilder.Entity("Proje1.Domain.Entities.Department", b =>
+                {
+                    b.Navigation("Persons");
+
+                    b.Navigation("Reports");
                 });
 
             modelBuilder.Entity("Proje1.Domain.Entities.Person", b =>
                 {
-                    b.Navigation("Account")
+                    b.Navigation("Authority")
                         .IsRequired();
+
+                    b.Navigation("Reports");
 
                     b.Navigation("RequestForms");
                 });

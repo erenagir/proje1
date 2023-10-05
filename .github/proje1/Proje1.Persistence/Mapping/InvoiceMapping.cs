@@ -24,7 +24,7 @@ namespace Proje1.Persistence.Mapping
                .HasColumnName("PRODUCT_DETAİL")
                .HasColumnType("nvarchar(max)")
                .HasColumnOrder(4);
-
+            builder.ToTable("INVOICES");
 
         }
     }

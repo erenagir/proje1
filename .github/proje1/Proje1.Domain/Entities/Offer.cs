@@ -14,6 +14,6 @@ namespace Proje1.Domain.Entities
         public string  CompanyPhone { get; set; }
         public string CompanyEmail { get; set; }
 
-        public decimal TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Proje1.Aplication.Models.RequestModels.Company;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Aplication.Models.RequestModels.RequestForm;
@@ -16,8 +17,12 @@ namespace Proje1.Aplication.AutoMapper
 
         public ViewModelToDomain()
         {
+            CreateMap<CreateCompanyVM, Company>();
+
+
+
             CreateMap<ReisterVM, Person>();
-            CreateMap<ReisterVM,Account>();
+           
 
 
             CreateMap<CreateProductVM,Product>();

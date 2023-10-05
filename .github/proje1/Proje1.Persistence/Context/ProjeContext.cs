@@ -7,31 +7,42 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Net;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Proje1.Persistence.Context
 {
-    public class ProjeContext:DbContext
+    public class ProjeContext : DbContext
     {
-        public ProjeContext(DbContextOptions<ProjeContext> options):base(options)
+        public ProjeContext(DbContextOptions<ProjeContext> options) : base(options)
         {
-            
-        }
 
-        public DbSet<Account> Accounts { get; set; }
+        }
+        public DbSet<Authority> Authorities { get; set; }
+        public DbSet<Company> companies { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Invoice> Invoicess { get; set; }
         public DbSet<Offer> Offers { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Report> Reports { get; set; }
         public DbSet<RequestForm> RequestForms { get; set; }
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AccountMapping());
+            modelBuilder.ApplyConfiguration(new AuthorityMapping());
+            modelBuilder.ApplyConfiguration(new CompanyMapping());
+            modelBuilder.ApplyConfiguration(new DepartmentMapping());
+            modelBuilder.ApplyConfiguration(new InvoiceMapping());
             modelBuilder.ApplyConfiguration(new OfferMapping());
             modelBuilder.ApplyConfiguration(new PersonMapping());
             modelBuilder.ApplyConfiguration(new ProductMapping());
+            modelBuilder.ApplyConfiguration(new ReportMapping());
             modelBuilder.ApplyConfiguration(new RequestFormMapping());
-           
+
 
         }
 
@@ -57,7 +68,7 @@ namespace Proje1.Persistence.Context
                         //update
                         case EntityState.Modified:
                             auditableEntity.ModifiedDate = DateTime.Now;
-                            auditableEntity.ModifiedBy =  "admin";
+                            auditableEntity.ModifiedBy = "admin";
                             break;
                         //insert
                         case EntityState.Added:
@@ -67,7 +78,7 @@ namespace Proje1.Persistence.Context
                         //delete
                         case EntityState.Deleted:
                             auditableEntity.ModifiedDate = DateTime.Now;
-                            auditableEntity.ModifiedBy =  "admin";
+                            auditableEntity.ModifiedBy = "admin";
                             break;
                         default:
                             break;

@@ -46,7 +46,7 @@ namespace Proje1.Aplication.Services.Implementation
         {
             var result = new Result<TokenDto>();
             var hashedPassword = CipherUtils.EncryptString(_configuration["AppSettings:SecretKey"], loginVM.Password);
-            var existsPerson = await _uWork.GetRepository<Account>().GetSingleByFilterAsync(x => x.UserName == loginVM.UserName && hashedPassword == x.Password,"Person");
+            var existsPerson = await _uWork.GetRepository<Person>().GetSingleByFilterAsync(x => x.UserName == loginVM.UserName && hashedPassword == x.Password,"Person");
             if (existsPerson == null)
             //exception eklenecek 
             {
@@ -67,23 +67,23 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<bool>> Register(ReisterVM reisterVM)
         {
             var result = new Result<bool>();
-            if (await _uWork.GetRepository<Account>().AnyAsync(x => x.UserName == reisterVM.UserName))
+            if (await _uWork.GetRepository<Person>().AnyAsync(x => x.UserName == reisterVM.UserName))
             {
                 throw new Exception();
 
             }
-            //Gelen model account türüne maplandi
-            var accountEntity = _mapper.Map<Account>(reisterVM);
             //Gelen model person türüne maplandi.
-            var personEntity = _mapper.Map<Person>(reisterVM);
+            var userEntity = _mapper.Map<Person>(reisterVM);
+            
+           
             //Kullanıcının parolasını şifreleyerek kaydedelim.
-            accountEntity.Password = CipherUtils
-                .EncryptString(_configuration["AppSettings:SecretKey"], accountEntity.Password);
+            userEntity.Password = CipherUtils
+                .EncryptString(_configuration["AppSettings:SecretKey"], userEntity.Password);
 
-            accountEntity.Person = personEntity;
+            
 
-            _uWork.GetRepository<Person>().Add(personEntity);
-            _uWork.GetRepository<Account>().Add(accountEntity);
+            _uWork.GetRepository<Person>().Add(userEntity);
+            
             result.Data = await _uWork.ComitAsync();
 
             return result;
@@ -94,7 +94,7 @@ namespace Proje1.Aplication.Services.Implementation
             
         }
 
-        private string GenerateJwtToken(Account account, DateTime expireDate)
+        private string GenerateJwtToken(Person account, DateTime expireDate)
         {
             var secretkey = _configuration["Jwt:SigningKey"];
             var ıssuer = _configuration["Jwt:Issuer"];
@@ -114,10 +114,10 @@ namespace Proje1.Aplication.Services.Implementation
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name,account.UserName),
-                    new Claim(ClaimTypes.Role,account.Person.Role.ToString()),
+                   // new Claim(ClaimTypes.Role,account.Person.Role.ToString()),
                     
 
-                    new Claim(ClaimTypes.Sid,account.PersonId.ToString()),
+                    new Claim(ClaimTypes.Sid,account.Id.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

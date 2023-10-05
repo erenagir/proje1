@@ -10,21 +10,20 @@ namespace Proje1.Domain.Entities
 {
     public class Person:BaseEntity
     {
+        public int departmantId { get; set; }
+       
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
-        public Roles Role { get; set; }
 
-        public Account Account { get; set; }
-        public ICollection<RequestForm> RequestForms { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+
+        public Authority Authority  { get; set; }
+        public Department Department { get; set; }
+        public  ICollection<RequestForm> RequestForms { get; set; }
+        public  ICollection<Report> Reports { get; set; }
     }
 
-    public enum Roles
-    {
-        Employee=1,
-        Manager,
-        Purchase,//satın alma
-        Accounting,//muhasebe
-        admin
-    }
+   
 }

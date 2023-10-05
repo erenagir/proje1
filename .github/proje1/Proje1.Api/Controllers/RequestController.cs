@@ -38,7 +38,7 @@ namespace Proje1.Api.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<ActionResult<Result<int>>> Login(UpdateRequestVM updateRequestVM)
+        public async Task<ActionResult<Result<int>>> UpdateRequest(UpdateRequestVM updateRequestVM)
         {
             var item = await _requestFormService.UpdateRequest(updateRequestVM);
             return Ok(item);

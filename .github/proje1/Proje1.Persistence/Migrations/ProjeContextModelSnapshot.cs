@@ -205,19 +205,14 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("REQUESTFROM_ID")
                         .HasColumnOrder(2);
 
-                    b.Property<int?>("RequestFormId1")
-                        .HasColumnType("int");
-
                     b.Property<double>("TotalPrice")
-                        .HasColumnType("float");
+                        .HasColumnType("float")
+                        .HasColumnName("TOTAL_PRİCE")
+                        .HasColumnOrder(6);
 
                     b.HasKey("Id");
 
                     b.HasIndex("RequestFormId");
-
-                    b.HasIndex("RequestFormId1")
-                        .IsUnique()
-                        .HasFilter("[RequestFormId1] IS NOT NULL");
 
                     b.ToTable("INVOICES", (string)null);
                 });
@@ -494,9 +489,6 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("DETAİL")
                         .HasColumnOrder(4);
 
-                    b.Property<int>("InvoıceId")
-                        .HasColumnType("int");
-
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -572,10 +564,6 @@ namespace Proje1.Persistence.Migrations
                         .HasForeignKey("RequestFormId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Proje1.Domain.Entities.RequestForm", null)
-                        .WithOne("Invoice")
-                        .HasForeignKey("Proje1.Domain.Entities.Invoice", "RequestFormId1");
 
                     b.Navigation("RequestForm");
                 });
@@ -657,9 +645,6 @@ namespace Proje1.Persistence.Migrations
 
             modelBuilder.Entity("Proje1.Domain.Entities.RequestForm", b =>
                 {
-                    b.Navigation("Invoice")
-                        .IsRequired();
-
                     b.Navigation("Invoices");
 
                     b.Navigation("Offers");

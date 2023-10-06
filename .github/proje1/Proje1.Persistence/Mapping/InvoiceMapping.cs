@@ -28,6 +28,10 @@ namespace Proje1.Persistence.Mapping
                .HasColumnName("PRODUCT_DETAİL")
                .HasColumnType("nvarchar(max)")
                .HasColumnOrder(5);
+            builder.Property(x => x.TotalPrice)
+              .HasColumnName("TOTAL_PRİCE")
+              
+              .HasColumnOrder(6);
 
             builder.HasOne(x => x.RequestForm)
                 .WithMany(x => x.Invoices)

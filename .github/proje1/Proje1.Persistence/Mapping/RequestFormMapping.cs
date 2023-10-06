@@ -38,7 +38,7 @@ namespace Proje1.Persistence.Mapping
             builder.HasOne(x => x.Person)
                 .WithMany(x => x.RequestForms)
                 .HasForeignKey(x => x.PersonId);
-            builder.HasOne(x => x.Invoice);
+            
                 
 
             builder.ToTable("REQUESTFORM");

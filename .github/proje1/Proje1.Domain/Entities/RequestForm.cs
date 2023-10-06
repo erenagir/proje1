@@ -9,14 +9,14 @@ namespace Proje1.Domain.Entities
 {
     public class RequestForm: AuditableEntity
     {   
-        public int InvoıceId { get; set; }
+       
         public int PersonId { get; set; }
         public string Name { get; set; }
         public string Detail { get; set; }
         public string Products { get; set; }
         public Status Status { get; set; }
         public Person Person { get; set; }
-        public Invoice Invoice { get; set; }
+       
 
         public ICollection<Invoice> Invoices  { get; set; }
         public ICollection<Offer> Offers { get; set; }

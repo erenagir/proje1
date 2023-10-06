@@ -9,9 +9,10 @@ namespace Proje1.Domain.Entities
 {
     public class Product:AuditableEntity
     {
+        public int DepartmentId { get; set; }
         public string Name { get; set; }
         public string ProductDetail { get; set; }
         public int Stock { get; set; }
-
+        public Department Department { get; set; }
     }
 }

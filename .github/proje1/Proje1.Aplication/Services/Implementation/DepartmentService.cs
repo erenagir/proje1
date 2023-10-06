@@ -46,10 +46,17 @@ namespace Proje1.Aplication.Services.Implementation
             return result;
         }
 
-        public async Task<Result<List<DepartmentDto>>> GetAllDepartment()
+        public async Task<Result<List<DepartmentDto>>> GetAllDepartmentByCompany(GetAllDepartmentByCompanyVM getAllDepartmentByCompanyVM)
         {
             var result=new Result<List<DepartmentDto>>();
-           var departmentEntity=await _uWork.GetRepository<Department>().GetAllAsync();
+
+            //var companyExists = await _uWork.GetRepository<Company>().AnyAsync(x=>x.Id==getAllDepartmentByCompanyVM.CompanyId);
+
+            //if (!companyExists)
+            //{
+            //    throw new NotFoundException("şirket bilgisi bulunamdı");
+            //}
+            var departmentEntity=await _uWork.GetRepository<Department>().GetByFilterAsync(x => x.CompanyId == getAllDepartmentByCompanyVM.CompanyId);
             var departmentDtos = departmentEntity.ProjectTo<DepartmentDto>(_mapper.ConfigurationProvider).ToList();
            result.Data = departmentDtos;
             return result;

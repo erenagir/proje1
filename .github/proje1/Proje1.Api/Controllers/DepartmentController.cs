@@ -25,10 +25,10 @@ namespace Proje1.Api.Controllers
             _service = departmentService;
         }
 
-        [HttpGet("get")]
-        public async Task<ActionResult<Result<List<DepartmentDto>>>> GetAllDepartment()
+        [HttpGet("get/{companyId}")]
+        public async Task<ActionResult<Result<List<DepartmentDto>>>> GetAllDepartment( int companyId)
         {
-            var item = _service.GetAllDepartment();
+            var item = _service.GetAllDepartmentByCompany(new GetAllDepartmentByCompanyVM {CompanyId= companyId });
             return Ok(item);
         }
 

@@ -14,6 +14,6 @@ namespace Proje1.Aplication.Services.Abstraction
     public interface IDepartmentService
     {
         Task<Result<int>> CreateDepartment(CreateDepartmentVM createDepartmentVM);
-        Task<Result<List<DepartmentDto>>> GetAllDepartment();
+        Task<Result<List<DepartmentDto>>> GetAllDepartmentByCompany(GetAllDepartmentByCompanyVM getAllDepartmentByCompanyVM);
     }
 }

@@ -68,6 +68,8 @@ builder.Services.AddScoped<IRequestFormService,RequestFromService>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IInvoiceService , InvoýceService>();
+builder.Services.AddScoped<IOfferService, OfferService>();
+
 
 
 

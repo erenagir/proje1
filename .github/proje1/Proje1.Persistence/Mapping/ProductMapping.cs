@@ -26,6 +26,10 @@ namespace Proje1.Persistence.Mapping
             builder.Property(x => x.Stock)
             .HasColumnName("STOCK")
             .HasColumnOrder(4);
+
+            builder.HasOne(x => x.Department)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.DepartmentId);
             builder.ToTable("PRODUCTS");
         }
     }

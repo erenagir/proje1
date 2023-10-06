@@ -12,7 +12,7 @@ namespace Proje1.Aplication.Services.Abstraction
     public interface IProductSevice
     {
 
-        Task<Result<List<ProductDto>>> GetAllProducts();
+        Task<Result<List<ProductDto>>> GetAllProductsByDepartment(GetAllProductByDepartmentVM getAllProductByDepartmentVM);
         Task<Result<int>> CreateProduct(CreateProductVM createProductVM);
         Task<Result<bool>> UseProduct(UpdateProductVM UpdateProductVM);
         Task<Result<bool>> AddProduct(UpdateProductVM updateProduct);

@@ -24,7 +24,7 @@ namespace Proje1.Persistence.Repository
             IQueryable<T> query = _dbSet;
             if (includeColumns.Any())
             {
-                foreach (var includeColumn in includeColumns)
+                foreach (var includeColumn in includeColumns)              
                 {
                     query = _dbSet.Include(includeColumn);
                 }
@@ -73,9 +73,8 @@ namespace Proje1.Persistence.Repository
 
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> filter)
         {
-           return await _dbSet.AnyAsync(filter);
+            return await _dbSet.AnyAsync(filter);
         }
-
         public void Delete(T entity)
         {
             _dbSet.Remove(entity);

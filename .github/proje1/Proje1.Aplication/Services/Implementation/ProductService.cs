@@ -34,10 +34,10 @@ namespace Proje1.Aplication.Services.Implementation
             return result;
         }
 
-        public async Task<Result<List<ProductDto>>> GetAllProducts()
+        public async Task<Result<List<ProductDto>>> GetAllProductsByDepartment(GetAllProductByDepartmentVM getAllProductByDepartmentVM )
         {
             var result = new Result<List<ProductDto>>();
-            var products = await _uWork.GetRepository<Product>().GetAllAsync();
+            var products = await _uWork.GetRepository<Product>().GetByFilterAsync(x=>x.DepartmentId==getAllProductByDepartmentVM.DepartmentId);
             var productDtos = products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = productDtos;
             return result;

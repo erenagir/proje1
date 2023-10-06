@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Proje1.Aplication.Models.RequestModels.Product
 {
-    public class CreateProductVM
+    public class GetAllProductByDepartmentVM
     {
         public int DepartmentId { get; set; }
-        public string Name { get; set; }
-        public string ProductDetail { get; set; }
-        public int Stock { get; set; }
     }
 }

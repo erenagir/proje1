@@ -19,10 +19,10 @@ namespace Proje1.Api.Controllers
             _productSevice = productSevice;
         }
 
-        [HttpGet("get")]
-        public async Task<ActionResult<Result<List<ProductDto>>>> GetAllProduct()
+        [HttpGet("get/{departmentId}")]
+        public async Task<ActionResult<Result<List<ProductDto>>>> GetProductsByDepartment(int departmentId)
         {
-          var products=  _productSevice.GetAllProducts();
+          var products=  _productSevice.GetAllProductsByDepartment(new GetAllProductByDepartmentVM { DepartmentId=departmentId});
           return Ok(products);
         }
 

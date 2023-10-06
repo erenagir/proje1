@@ -65,6 +65,10 @@ builder.Services.AddAutoMapper(typeof(DomainToDto), typeof(ViewModelToDomain));
 builder.Services.AddScoped<IProductSevice, ProductService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddScoped<IRequestFormService,RequestFromService>();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<IInvoiceService , InvoýceService>();
+
 
 
 //db adresleme

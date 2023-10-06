@@ -14,6 +14,8 @@ namespace Proje1.Persistence.Mapping
         public override void ConfigureDerivedEntity(EntityTypeBuilder<Product> builder)
         {
 
+            builder.Property(x => x.DepartmentId)
+                .HasColumnName("DEPARTMENT_ID");
             builder.Property(x => x.Name)
                 .HasColumnName("NAME")
                 .HasColumnType("nvarchar(50)")

@@ -78,7 +78,7 @@ builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IInvoiceService , InvoýceService>();
 builder.Services.AddScoped<IOfferService, OfferService>();
-
+builder.Services.AddScoped<IReportService, ReportService>();
 
 
 

@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "TcUzXYs1uOe6mQ4kkmtlKlZcpVAZ44iWhrsxZuog6uOGNA6wQJra1CO41fjibN+twmZbDFuvFrdXs0sjdUj0YQ==",
+  "dgSpecHash": "QyHfXrKzTgRiA7/tIzwszaJDt4L4gkuNcXIH7wXihedem3C0Q6mHJ+7B+Im1b7B9+Lc1ICmcZWiqT1zS1oioqQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\erenagir\\Desktop\\çalışma\\proje\\proje1\\.github\\proje1\\Proje1.Domain\\Proje1.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

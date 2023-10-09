@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Proje1.Aplication.Models.Dtos.Offers;
 using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.Dtos.Product;
 using Proje1.Aplication.Models.Dtos.RequestForm;
-using Proje1.Aplication.Models.RequestModels.Offers;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Aplication.Models.RequestModels.RequestForm;
@@ -14,35 +12,35 @@ using Proje1.Domain.Entities;
 namespace Proje1.Api.Controllers
 {
     [ApiController]
-    [Route("offer")]
-    public class OfferController : ControllerBase
+    [Route("request")]
+    public class RequestController : ControllerBase
     {
        
-        private readonly IOfferService _service;
+        private readonly IRequestFormService _requestFormService;
 
-        public OfferController(IOfferService service)
+        public RequestController(IRequestFormService requestFormService)
         {
-            _service = service;
+            _requestFormService = requestFormService;
         }
 
         [HttpGet("get")]
-        public async Task<ActionResult<Result<List<OfferDto>>>> GetAllOffer(GetAllOfferByRequestVM getAllOfferByRequestVM)
+        public async Task<ActionResult<Result<List<RequestDto>>>> GetAllRequest()
         {
-            var item = _service.GetAllOfferByRequest(getAllOfferByRequestVM);
+            var item = _requestFormService.GetAllRequest();
             return Ok(item);
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<Result<int>>> CreateOffer(CreateOfferVM offerVM)
+        public async Task<ActionResult<Result<bool>>> CreateRequest(CreateRequestVM requestVM)
         {
-            var item = await _service.CreateOffer(offerVM);
+            var item = await _requestFormService.CreateRequest(requestVM);
             return Ok(item);
         }
 
         [HttpPut("update")]
-        public async Task<ActionResult<Result<int>>> UpdateRequest(UpdateOfferVM updateOfferVM)
+        public async Task<ActionResult<Result<int>>> UpdateRequest(UpdateRequestVM updateRequestVM)
         {
-            var item = await _service.UpdateOffer(updateOfferVM);
+            var item = await _requestFormService.UpdateRequest(updateRequestVM);
             return Ok(item);
         }
 

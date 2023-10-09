@@ -11,6 +11,6 @@ namespace Proje1.Domain.UWork
     public interface IUWork
     {
         public IRepository<T> GetRepository<T>() where T : BaseEntity;
-        public Task<bool> ComitAsync();
+        public Task<bool> ComitAsync(string mesaage);
     }
 }

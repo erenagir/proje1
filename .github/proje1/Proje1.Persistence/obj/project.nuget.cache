@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3P20SYalEr7usviEBRix9WeCIn83zHW+t2HR9Q6r7Mt9Mpx40QKBfldP7mgBgP/lLR+GTJeQTvPH7MOwwfdLsw==",
+  "dgSpecHash": "i6dVeCP05jC33bJkc7dl6FWm/7D2qBRg+ZFTfOVXICBl7/aNwY9Vou+UOoYF+PI4PoXsQQ1U2M+SUp/FgckDGA==",
   "success": true,
   "projectFilePath": "C:\\Users\\erenagir\\Desktop\\çalışma\\proje\\proje1\\.github\\proje1\\Proje1.Persistence\\Proje1.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erenagir\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",

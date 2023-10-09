@@ -41,7 +41,7 @@ namespace Proje1.Aplication.Services.Implementation
            var result=new Result<int>();
            var requestEntity= _mapper.Map<RequestForm>(createRequestVM);
            _uWork.GetRepository<RequestForm>().Add(requestEntity);
-           await _uWork.ComitAsync();
+           await _uWork.ComitAsync($"{requestEntity.Id} kimlik numaralı istek oluşturuldu");
             result.Data = requestEntity.Id;
             return result;
         }
@@ -59,7 +59,7 @@ namespace Proje1.Aplication.Services.Implementation
             }
             _mapper.Map(updateRequestVM, requestEntity);
              _uWork.GetRepository<RequestForm>().Update(requestEntity);
-            await _uWork.ComitAsync();
+            await _uWork.ComitAsync($"{requestEntity.Id} istek güncellendi");
             result.Data = requestEntity.Id;
             return result;
         }

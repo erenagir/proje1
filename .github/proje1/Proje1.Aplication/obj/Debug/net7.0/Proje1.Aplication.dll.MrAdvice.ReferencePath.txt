@@ -1,6 +1,8 @@
 C:\Users\erenagir\.nuget\packages\automapper\12.0.1\lib\netstandard2.1\AutoMapper.dll
 C:\Users\erenagir\.nuget\packages\fluentvalidation.dependencyinjectionextensions\11.7.1\lib\netstandard2.1\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\erenagir\.nuget\packages\fluentvalidation\11.7.1\lib\net7.0\FluentValidation.dll
+C:\Users\erenagir\.nuget\packages\microsoft.aspnetcore.http.abstractions\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\erenagir\.nuget\packages\microsoft.aspnetcore.http.features\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\7.0.10\ref\net7.0\Microsoft.CSharp.dll
 C:\Users\erenagir\.nuget\packages\microsoft.extensions.configuration.abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\erenagir\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\2.1.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

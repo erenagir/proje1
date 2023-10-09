@@ -46,7 +46,7 @@ namespace Proje1.Aplication.Services.Implementation
         {
             var result = new Result<TokenDto>();
             var hashedPassword = CipherUtils.EncryptString(_configuration["AppSettings:SecretKey"], loginVM.Password);
-            var existsPerson = await _uWork.GetRepository<Person>().GetSingleByFilterAsync(x => x.UserName == loginVM.UserName && hashedPassword == x.Password,"Person");
+            var existsPerson = await _uWork.GetRepository<Person>().GetSingleByFilterAsync(x => x.UserName == loginVM.UserName && hashedPassword == x.Password);
             if (existsPerson == null)
             //exception eklenecek 
             {
@@ -67,11 +67,11 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<bool>> Register(ReisterVM reisterVM)
         {
             var result = new Result<bool>();
-            if (await _uWork.GetRepository<Person>().AnyAsync(x => x.UserName == reisterVM.UserName))
-            {
-                throw new Exception();
+            //if (await _uWork.GetRepository<Person>().AnyAsync(x => x.UserName == reisterVM.UserName))
+            //{
+            //    throw new Exception();
 
-            }
+            //}
             //Gelen model person türüne maplandi.
             var userEntity = _mapper.Map<Person>(reisterVM);
             
@@ -84,7 +84,7 @@ namespace Proje1.Aplication.Services.Implementation
 
             _uWork.GetRepository<Person>().Add(userEntity);
             
-            result.Data = await _uWork.ComitAsync();
+            result.Data = await _uWork.ComitAsync($"{userEntity.Id} kimlik numaralı kullanıcı oluşturuldu");
 
             return result;
 
@@ -113,11 +113,11 @@ namespace Proje1.Aplication.Services.Implementation
 
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.Name,account.UserName),
-                   // new Claim(ClaimTypes.Role,account.Person.Role.ToString()),
-                    
+                    new Claim(ClaimTypes.Name, account.UserName),
+                    //  new Claim(ClaimTypes.Role,account.Person.Role.ToString()),
+                    new Claim(ClaimTypes.PrimarySid, account.departmantId.ToString()),
 
-                    new Claim(ClaimTypes.Sid,account.Id.ToString()),
+                    new Claim(ClaimTypes.Sid, account.Id.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

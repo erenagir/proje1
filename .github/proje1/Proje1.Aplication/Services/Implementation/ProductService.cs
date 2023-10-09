@@ -29,7 +29,7 @@ namespace Proje1.Aplication.Services.Implementation
             var result = new Result<int>();
             var productEntity = _mapper.Map<Product>(createProductVM);
             _uWork.GetRepository<Product>().Add(productEntity);
-            await _uWork.ComitAsync();
+            await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün oluşturuldu");
             result.Data = productEntity.Id;
             return result;
         }
@@ -50,7 +50,7 @@ namespace Proje1.Aplication.Services.Implementation
             var productEntity = await _uWork.GetRepository<Product>().GetById(updateProductVM.Id);
             productEntity.Stock -= updateProductVM.Stock;
             _uWork.GetRepository<Product>().Update(productEntity);
-            result.Data = await _uWork.ComitAsync();
+            result.Data = await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün kullanıldı");
             return result;
         }
         public async Task<Result<bool>> AddProduct(UpdateProductVM updateProduct)
@@ -59,7 +59,7 @@ namespace Proje1.Aplication.Services.Implementation
             var productEntity = await _uWork.GetRepository<Product>().GetById(updateProduct.Id);
             productEntity.Stock += updateProduct.Stock;
             _uWork.GetRepository<Product>().Update(productEntity);
-            result.Data = await _uWork.ComitAsync();
+            result.Data = await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün stok eklemsi yapıldı" );
             return result;
         }
     }

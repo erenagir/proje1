@@ -167,3 +167,4 @@ C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\FluentValidation.dll
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\MrAdvice.dll
+C:\Users\erenagir\Desktop\çalışma\proje\proje1\.github\proje1\Proje1.Api\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

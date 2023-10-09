@@ -1,5 +1,7 @@
 ﻿using Proje1.Domain.Common;
+using Proje1.Domain.Entities;
 using Proje1.Domain.Repositories;
+using Proje1.Domain.Services.Abstraction;
 using Proje1.Domain.UWork;
 using Proje1.Persistence.Context;
 using Proje1.Persistence.Repository;
@@ -15,17 +17,32 @@ namespace Proje1.Persistence.UWork
     {
         private Dictionary<Type, object> _repository;
         private readonly ProjeContext _context;
+        private readonly ILoggedUserService _loggedService;
 
 
-        public UWork(ProjeContext projeContext)
+        public UWork(ProjeContext projeContext, ILoggedUserService loggedService)
         {
             _repository = new Dictionary<Type, object>();
             _context = projeContext;
-            
+            _loggedService = loggedService;
         }
 
-        public async Task<bool> ComitAsync()
+        public async Task<bool> ComitAsync(string mesaage)
         {
+            var reportEntity = new Report
+            {
+                Date = DateTime.Now,
+                PersonId = (int)_loggedService.UserId,
+                DepartmentId = (int)_loggedService.DepartmentId,
+                detail = mesaage,
+
+            };
+
+           // _repository.Add(typeof(IRepository<Report>), new Repository<Report>(_context));
+            GetRepository<Report>().Add(reportEntity);
+
+            
+
             var result = false;
             using (var transaction = _context.Database.BeginTransaction())
             {
@@ -53,12 +70,12 @@ namespace Proje1.Persistence.UWork
             if (_repository.ContainsKey(typeof(IRepository<T>)))
                 return (IRepository<T>)_repository[typeof(IRepository<T>)];
 
-            var repository= new Repository<T>(_context);
+            var repository = new Repository<T>(_context);
 
-            _repository.Add(typeof(IRepository<T>),repository);
+            _repository.Add(typeof(IRepository<T>), repository);
             return repository;
 
-         }
+        }
 
 
 
@@ -86,7 +103,7 @@ namespace Proje1.Persistence.UWork
             }
 
             //Kullanılan harici dil kütüphaneleri (.Net ile yazılmamış external kütüphaneler)
-           
+
             _disposed = true;
         }
 

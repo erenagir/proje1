@@ -37,7 +37,7 @@ namespace Proje1.Aplication.Services.Implementation
             }
             var invoiceEntity = _mapper.Map<Invoice>(createInvoiceVM);
             _uWork.GetRepository<Invoice>().Add(invoiceEntity);
-            await _uWork.ComitAsync();
+            await _uWork.ComitAsync($"{invoiceEntity.Id} kimlik numaralı fatura eklendi");
             result.Data = invoiceEntity.Id;
             return result;
 

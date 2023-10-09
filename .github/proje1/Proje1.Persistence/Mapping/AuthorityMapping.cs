@@ -37,9 +37,9 @@ namespace Proje1.Persistence.Mapping
                 .HasColumnName("IS_MANAGEMENT")
                 .HasColumnOrder(9);
 
-            builder.HasOne(x => x.Person)
-                .WithOne(x => x.Authority)
-                .HasForeignKey<Authority>(x => x.PersonId);
+         //  builder.HasOne(x => x.Person)
+                //.WithOne(x => x.Authority)
+                //.HasForeignKey<Authority>(x => x.PersonId);
 
            
             builder.ToTable("AUTHORITY");

@@ -47,10 +47,12 @@ namespace Proje1.Persistence.Mapping
                .HasForeignKey(x => x.departmantId)
                .OnDelete(DeleteBehavior.NoAction)
                .HasConstraintName("PERSONS_Department_DEPARTMENT_ID");
-              
-           
-           
-            
+
+
+            builder.Property(x => x.Role)
+                .HasColumnName("ROLES")
+                .HasColumnOrder(9);
+
         }
     }
 }

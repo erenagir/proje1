@@ -41,6 +41,10 @@ namespace Proje1.Aplication.Services.Implementation
             result.Data = invoiceEntity.Id;
             return result;
 
+
+           //mail servisi ekle
+
+
         }
 
         public async Task<Result<List<InvoiceDto>>> GetAllInvoice()

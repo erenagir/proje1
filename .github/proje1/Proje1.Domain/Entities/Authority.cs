@@ -16,6 +16,6 @@ namespace Proje1.Domain.Entities
         public bool Receive { get; set; }
         public bool Accounting { get; set; }
         public bool management { get; set; }
-        public Person Person { get; set; }
+       // public Person Person { get; set; }
     }
 }

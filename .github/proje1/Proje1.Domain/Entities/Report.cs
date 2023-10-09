@@ -9,7 +9,7 @@ namespace Proje1.Domain.Entities
 {
     public class Report:BaseEntity
     {
-        public int PersonId { get; set; }
+        public int PersonID { get; set; }
         public int DepartmentId { get; set; }
 
         public string detail { get; set; }

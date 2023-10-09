@@ -32,7 +32,7 @@ namespace Proje1.Persistence.UWork
             var reportEntity = new Report
             {
                 Date = DateTime.Now,
-                PersonId = (int)_loggedService.UserId,
+                PersonID = (int)_loggedService.UserId,
                 DepartmentId = (int)_loggedService.DepartmentId,
                 detail = mesaage,
 

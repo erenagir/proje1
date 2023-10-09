@@ -13,7 +13,7 @@ namespace Proje1.Persistence.Mapping
     {
         public override void ConfigureDerivedEntity(EntityTypeBuilder<Report> builder)
         {
-            builder.Property(x => x.PersonId)
+            builder.Property(x => x.PersonID)
                 .HasColumnName("PERSON_ID")
                 .HasColumnOrder(2);
             builder.Property(x => x.DepartmentId)
@@ -29,11 +29,13 @@ namespace Proje1.Persistence.Mapping
 
             builder.HasOne(x => x.Person)
               .WithMany(x => x.Reports)
-              .HasForeignKey(x => x.PersonId);
+              .HasForeignKey(x => x.PersonID)
+               .HasConstraintName("PERSON_REPORTS_PERSONID");
            
             builder.HasOne(x => x.Department)
               .WithMany(x => x.Reports)
-              .HasForeignKey(x => x.DepartmentId);
+              .HasForeignKey(x => x.DepartmentId)
+              .HasConstraintName("DEPARTMENT_REPORTS_PERSONID");
 
             builder.ToTable("REPORTS");
         }

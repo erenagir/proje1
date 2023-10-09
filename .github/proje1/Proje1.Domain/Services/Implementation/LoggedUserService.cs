@@ -21,7 +21,7 @@ namespace Proje1.Domain.Services.Implementation
 
         public string Email => GetClaim(ClaimTypes.Email) != null ? GetClaim(ClaimTypes.Email) : null;
 
-        public int? UserId => GetClaim(ClaimTypes.PrimarySid) != null ? int.Parse(GetClaim(ClaimTypes.PrimarySid)) : null;
+        public int? UserId => GetClaim(ClaimTypes.Sid) != null ? int.Parse(GetClaim(ClaimTypes.Sid)) : null;
 
         public int? DepartmentId => GetClaim(ClaimTypes.PrimarySid) != null ? int.Parse(GetClaim(ClaimTypes.PrimarySid)) : null;
 

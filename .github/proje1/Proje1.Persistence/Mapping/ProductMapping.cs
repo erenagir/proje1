@@ -31,7 +31,8 @@ namespace Proje1.Persistence.Mapping
 
             builder.HasOne(x => x.Department)
                 .WithMany(x => x.Products)
-                .HasForeignKey(x => x.DepartmentId);
+                .HasForeignKey(x => x.DepartmentId)
+                .HasConstraintName("DEPARTMENT_PRODUCTS_DEPARTMENTID");
             builder.ToTable("PRODUCTS");
         }
     }

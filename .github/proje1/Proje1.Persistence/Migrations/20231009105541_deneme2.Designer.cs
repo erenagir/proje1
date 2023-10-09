@@ -12,8 +12,8 @@ using Proje1.Persistence.Context;
 namespace Proje1.Persistence.Migrations
 {
     [DbContext(typeof(ProjeContext))]
-    [Migration("20231006102846_productModifieds")]
-    partial class productModifieds
+    [Migration("20231009105541_deneme2")]
+    partial class deneme2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,9 +78,6 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnOrder(9);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PersonId")
-                        .IsUnique();
 
                     b.ToTable("AUTHORITY", (string)null);
                 });
@@ -334,6 +331,11 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("PASSWORD")
                         .HasColumnOrder(8);
 
+                    b.Property<int>("Role")
+                        .HasColumnType("int")
+                        .HasColumnName("ROLES")
+                        .HasColumnOrder(9);
+
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(30)")
@@ -380,7 +382,8 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnOrder(37);
 
                     b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("DEPARTMENT_ID");
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -543,17 +546,6 @@ namespace Proje1.Persistence.Migrations
                     b.ToTable("REQUESTFORM", (string)null);
                 });
 
-            modelBuilder.Entity("Proje1.Domain.Entities.Authority", b =>
-                {
-                    b.HasOne("Proje1.Domain.Entities.Person", "Person")
-                        .WithOne("Authority")
-                        .HasForeignKey("Proje1.Domain.Entities.Authority", "PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Person");
-                });
-
             modelBuilder.Entity("Proje1.Domain.Entities.Department", b =>
                 {
                     b.HasOne("Proje1.Domain.Entities.Company", "Company")
@@ -571,7 +563,8 @@ namespace Proje1.Persistence.Migrations
                         .WithMany("Invoices")
                         .HasForeignKey("RequestFormId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("REQUESTFORM_INVOICES_REQUESTFORMID");
 
                     b.Navigation("RequestForm");
                 });
@@ -582,7 +575,8 @@ namespace Proje1.Persistence.Migrations
                         .WithMany("Offers")
                         .HasForeignKey("RequestformId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("REQUESTFORM_OFFERS_REQUESTFORMID");
 
                     b.Navigation("RequestForm");
                 });
@@ -605,7 +599,8 @@ namespace Proje1.Persistence.Migrations
                         .WithMany("Products")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("DEPARTMENT_PRODUCTS_DEPARTMENTID");
 
                     b.Navigation("Department");
                 });
@@ -616,13 +611,15 @@ namespace Proje1.Persistence.Migrations
                         .WithMany("Reports")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("DEPARTMENT_REPORTS_PERSONID");
 
                     b.HasOne("Proje1.Domain.Entities.Person", "Person")
                         .WithMany("Reports")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("PERSON_REPORTS_PERSONID");
 
                     b.Navigation("Department");
 
@@ -635,7 +632,8 @@ namespace Proje1.Persistence.Migrations
                         .WithMany("RequestForms")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("PERSON_REQUESTFORMS_PERSONID");
 
                     b.Navigation("Person");
                 });
@@ -656,9 +654,6 @@ namespace Proje1.Persistence.Migrations
 
             modelBuilder.Entity("Proje1.Domain.Entities.Person", b =>
                 {
-                    b.Navigation("Authority")
-                        .IsRequired();
-
                     b.Navigation("Reports");
 
                     b.Navigation("RequestForms");

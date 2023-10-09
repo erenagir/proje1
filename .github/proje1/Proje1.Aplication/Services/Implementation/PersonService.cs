@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Proje1.Aplication.Exceptions;
 using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Services.Abstraction;
@@ -67,11 +68,11 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<bool>> Register(ReisterVM reisterVM)
         {
             var result = new Result<bool>();
-            //if (await _uWork.GetRepository<Person>().AnyAsync(x => x.UserName == reisterVM.UserName))
-            //{
-            //    throw new Exception();
+            if (await _uWork.GetRepository<Person>().AnyAsync(x => x.UserName == reisterVM.UserName))
+            {
+                throw new AlreadyExistsException("kullanıcı adı kullanılmaktadır");
 
-            //}
+            }
             //Gelen model person türüne maplandi.
             var userEntity = _mapper.Map<Person>(reisterVM);
             

@@ -18,12 +18,21 @@ namespace Proje1.Domain.Entities
 
         public string UserName { get; set; }
         public string Password { get; set; }
-
-        public Authority Authority  { get; set; }
+        public Roles Role { get; set; }
+       // public Authority Authority  { get; set; }
         public Department Department { get; set; }
         public  ICollection<RequestForm> RequestForms { get; set; }
         public  ICollection<Report> Reports { get; set; }
     }
 
-   
+   public enum Roles
+    {
+        admin=1,
+        request,
+        recive,
+        accounting,
+        management
+
+
+    }
 }

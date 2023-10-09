@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Zi+tjkzaZEydXVb18N02sQDqho48V5osOfLlRKe5vNwx8uKhh0/nNryPuityUKTy2i/Akpxj23cDQHjz0MxJzw==",
+  "dgSpecHash": "3JltQnWtKmD/Cem83hzFam1N+PxLLE1sn7xIICiblMAr/PT+DZ/Kxfx403NCWThZ7UwY5AqeRMCDAs2su/SNlQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\erenagir\\Desktop\\çalışma\\proje\\proje1\\.github\\proje1\\Proje1.UI\\Proje1.UI.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\erenagir\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

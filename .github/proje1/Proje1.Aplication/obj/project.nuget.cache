@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UyMppOEPiViM28P7xzvfJCn0dEB0Q9tdxWy8bg3wsQcO2fIP81dN72sgrdcNB/XAVaFzduvVdVo+Xs6AEGmWlA==",
+  "dgSpecHash": "1v1hlL3H/756Lyf7otygEQNIAY3U9wkKe4EGbun5gbWClqZt41edrrobjI0uUvZmwFvKBs7Na2oQS5ImaY+qHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\erenagir\\Desktop\\çalışma\\proje\\proje1\\.github\\proje1\\Proje1.Aplication\\Proje1.Aplication.csproj",
+  "projectFilePath": "C:\\Users\\erenagir\\Desktop\\deneme\\proje1\\.github\\proje1\\Proje1.Aplication\\Proje1.Aplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erenagir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",

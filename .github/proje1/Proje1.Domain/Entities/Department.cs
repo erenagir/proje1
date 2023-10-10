@@ -16,5 +16,6 @@ namespace Proje1.Domain.Entities
         public  ICollection<Person> Persons { get; set; }
         public  ICollection<Report> Reports { get; set; }
         public ICollection<Product> Products { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
     }
 }

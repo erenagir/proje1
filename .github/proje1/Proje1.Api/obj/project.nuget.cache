@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FEeowQDF3vwi7eU9CwOegnSKzxJlT4ES1/57f24uI7MuZ9hKpaV7YdNe0II7/pZr5q8A9K2sJKHlwSUsas42fg==",
+  "dgSpecHash": "w8uiRdpi/q6sjQPfrkkTJUB0mU5J459bnG8aS6re9y3LGPyk9EDujaT3p73tC7tdoBymeYwGSlDOPxCrNMSmTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\erenagir\\Desktop\\çalışma\\proje\\proje1\\.github\\proje1\\Proje1.Api\\Proje1.Api.csproj",
+  "projectFilePath": "C:\\Users\\erenagir\\Desktop\\deneme\\proje1\\.github\\proje1\\Proje1.Api\\Proje1.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erenagir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

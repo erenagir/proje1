@@ -15,6 +15,9 @@ namespace Proje1.Aplication.Services.Abstraction
         Task<Result<bool>> Register(ReisterVM reisterVM);
         Task<Result<TokenDto>> Login(LoginVM loginVM);
         Task<Result<List<PersonDto>>> GetAllPersons();
+        Task<Result<List<PersonDto>>> GetPersonsByCompany(GetPersonVM getPersonVM);
+        Task<Result<List<PersonDto>>> GetPersonsByDepartment(GetPersonVM getPersonVM);
+        Task<Result<List<PersonDto>>> GetPersonsById(GetPersonVM getPersonVM);
 
     }
 }

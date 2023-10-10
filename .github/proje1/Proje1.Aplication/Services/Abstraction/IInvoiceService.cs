@@ -15,6 +15,10 @@ namespace Proje1.Aplication.Services.Abstraction
     {
         Task<Result<int>> CreateInvoice(CreateInvoiceVM createInvoiceVM );
         Task<Result<List<InvoiceDto>>> GetAllInvoice();
+        Task<Result<List<InvoiceDto>>> GetInvoiceByCompany(GetInvoiceVM getInvoiceVM);
+        Task<Result<List<InvoiceDto>>> GetInvoiceByDepartment(GetInvoiceVM getInvoiceVM);
+
+        Task<Result<List<InvoiceDto>>> GetInvoiceByRequestForm(GetInvoiceVM getInvoiceVM);
 
 
 

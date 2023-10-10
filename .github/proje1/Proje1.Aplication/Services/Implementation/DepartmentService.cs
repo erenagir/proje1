@@ -41,7 +41,7 @@ namespace Proje1.Aplication.Services.Implementation
             }
             var departmentEntity = _mapper.Map<Department>(createDepartmentVM);
             _uWork.GetRepository<Department>().Add(departmentEntity);
-            await _uWork.ComitAsync($"{departmentEntity.DepartmantName} kimlik numralı departman oluşturuldu");
+            await _uWork.ComitAsync($"{departmentEntity.DepartmantName}  departman oluşturuldu");
             result.Data = departmentEntity.Id;
             return result;
         }

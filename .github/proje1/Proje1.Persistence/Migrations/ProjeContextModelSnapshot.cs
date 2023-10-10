@@ -156,7 +156,7 @@ namespace Proje1.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(40)")
                         .HasColumnName("COMPANY_NAME")
-                        .HasColumnOrder(4);
+                        .HasColumnOrder(5);
 
                     b.Property<string>("CreateBy")
                         .IsRequired()
@@ -169,10 +169,15 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("CREATE_DATE")
                         .HasColumnOrder(37);
 
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int")
+                        .HasColumnName("DEPARTMENT_ID")
+                        .HasColumnOrder(3);
+
                     b.Property<DateTime>("InvoiceDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("INVOICE_DATE")
-                        .HasColumnOrder(3);
+                        .HasColumnOrder(4);
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -195,7 +200,7 @@ namespace Proje1.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("PRODUCT_DETAİL")
-                        .HasColumnOrder(5);
+                        .HasColumnOrder(6);
 
                     b.Property<int>("RequestFormId")
                         .HasColumnType("int")
@@ -205,9 +210,11 @@ namespace Proje1.Persistence.Migrations
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float")
                         .HasColumnName("TOTAL_PRİCE")
-                        .HasColumnOrder(6);
+                        .HasColumnOrder(7);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("RequestFormId");
 
@@ -450,7 +457,7 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnOrder(40)
                         .HasDefaultValueSql("0");
 
-                    b.Property<int>("PersonId")
+                    b.Property<int>("PersonID")
                         .HasColumnType("int")
                         .HasColumnName("PERSON_ID")
                         .HasColumnOrder(2);
@@ -465,7 +472,7 @@ namespace Proje1.Persistence.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.HasIndex("PersonId");
+                    b.HasIndex("PersonID");
 
                     b.ToTable("REPORTS", (string)null);
                 });
@@ -556,12 +563,21 @@ namespace Proje1.Persistence.Migrations
 
             modelBuilder.Entity("Proje1.Domain.Entities.Invoice", b =>
                 {
+                    b.HasOne("Proje1.Domain.Entities.Department", "Department")
+                        .WithMany("Invoices")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("DEPARTMENT_INVOICES_DEPARTMENTID");
+
                     b.HasOne("Proje1.Domain.Entities.RequestForm", "RequestForm")
                         .WithMany("Invoices")
                         .HasForeignKey("RequestFormId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("REQUESTFORM_INVOICES_REQUESTFORMID");
+
+                    b.Navigation("Department");
 
                     b.Navigation("RequestForm");
                 });
@@ -613,7 +629,7 @@ namespace Proje1.Persistence.Migrations
 
                     b.HasOne("Proje1.Domain.Entities.Person", "Person")
                         .WithMany("Reports")
-                        .HasForeignKey("PersonId")
+                        .HasForeignKey("PersonID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("PERSON_REPORTS_PERSONID");
@@ -642,6 +658,8 @@ namespace Proje1.Persistence.Migrations
 
             modelBuilder.Entity("Proje1.Domain.Entities.Department", b =>
                 {
+                    b.Navigation("Invoices");
+
                     b.Navigation("Persons");
 
                     b.Navigation("Products");

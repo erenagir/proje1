@@ -43,6 +43,33 @@ namespace Proje1.Aplication.Services.Implementation
             return result;
         }
 
+        public async Task<Result<List<PersonDto>>> GetPersonsByCompany(GetPersonVM getPersonVM)
+        {
+            var result = new Result<List<PersonDto>>();
+            var personEntites = await _uWork.GetRepository<Person>().GetByFilterAsync(x=>x.Department.CompanyId==getPersonVM.Id,"Department");
+            var personDtos = personEntites.ProjectTo<PersonDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = personDtos;
+            return result;
+        }
+
+        public async Task<Result<List<PersonDto>>> GetPersonsByDepartment(GetPersonVM getPersonVM)
+        {
+            var result = new Result<List<PersonDto>>();
+            var personEntites = await _uWork.GetRepository<Person>().GetByFilterAsync(x => x.departmantId == getPersonVM.Id );
+            var personDtos = personEntites.ProjectTo<PersonDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = personDtos;
+            return result;
+        }
+
+        public async Task<Result<List<PersonDto>>> GetPersonsById(GetPersonVM getPersonVM)
+        {
+            var result = new Result<List<PersonDto>>();
+            var personEntites = await _uWork.GetRepository<Person>().GetByFilterAsync(x => x.Id == getPersonVM.Id);
+            var personDtos = personEntites.ProjectTo<PersonDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = personDtos;
+            return result;
+        }
+
         public async Task<Result<TokenDto>> Login(LoginVM loginVM)
         {
             var result = new Result<TokenDto>();

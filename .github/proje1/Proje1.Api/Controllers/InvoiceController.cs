@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Proje1.Aplication.Models.Dtos.Company;
+using Proje1.Aplication.Models.Dtos.Invoice;
 using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.Dtos.Product;
 using Proje1.Aplication.Models.RequestModels.Company;
@@ -16,7 +17,7 @@ namespace Proje1.Api.Controllers
     [Route("invoice")]
     public class InvoiceController : ControllerBase
     {
-       
+
         private readonly IInvoiceService _service;
 
         public InvoiceController(IInvoiceService service)
@@ -25,20 +26,40 @@ namespace Proje1.Api.Controllers
         }
 
         [HttpGet("get")]
-        public async Task<ActionResult<Result<List<CompanyDto>>>> GetAllInvoices()
+        public async Task<ActionResult<Result<List<InvoiceDto>>>> GetAllInvoices()
         {
-          var item=  _service.GetAllInvoice();
-          return Ok(item);
+            var item = _service.GetAllInvoice();
+            return Ok(item);
+        }
+
+
+        [HttpGet("GetByCompany/{companyId}")]
+        public async Task<ActionResult<Result<List<InvoiceDto>>>> GetInvoiceByCompany(int companyId)
+        {
+            var item = _service.GetInvoiceByCompany(new GetInvoiceVM { Id = companyId });
+            return Ok(item);
+        }
+        [HttpGet("getByDepartment/{departmentId}")]
+        public async Task<ActionResult<Result<List<InvoiceDto>>>> getInvoiceByDepartment(int departmentId)
+        {
+            var item = _service.GetInvoiceByDepartment(new GetInvoiceVM { Id = departmentId });
+            return Ok(item);
+        }
+        [HttpGet("getByRequest/{requestId}")]
+        public async Task<ActionResult<Result<List<InvoiceDto>>>> getInvoiceByRequest(int requestId)
+        {
+            var item = _service.GetInvoiceByRequestForm(new GetInvoiceVM { Id = requestId });
+            return Ok(item);
         }
 
         [HttpPost("create")]
         public async Task<ActionResult<Result<int>>> CreateCompany(CreateInvoiceVM createInvoiceVM)
         {
-          var item= await _service.CreateInvoice(createInvoiceVM);  
+            var item = await _service.CreateInvoice(createInvoiceVM);
             return Ok(item);
         }
-
-      
-
     }
+
+
+
 }

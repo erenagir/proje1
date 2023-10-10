@@ -35,7 +35,7 @@ namespace Proje1.Aplication.Services.Implementation
 
             var companyEntity = _mapper.Map<Company>(createCompanyVM);
             _uWork.GetRepository<Company>().Add(companyEntity);
-            await _uWork.ComitAsync($"{companyEntity.CompanyName} kimlik numaralı şirket oluşturuldu");
+            await _uWork.ComitAsync($"{companyEntity.CompanyName}  şirketi oluşturuldu");
             result.Data = companyEntity.Id;
             return result;
         }

@@ -37,7 +37,7 @@ namespace Proje1.Aplication.Services.Implementation
             }
             var invoiceEntity = _mapper.Map<Invoice>(createInvoiceVM);
             _uWork.GetRepository<Invoice>().Add(invoiceEntity);
-            await _uWork.ComitAsync($"{invoiceEntity.Id} kimlik numaralı fatura eklendi");
+            await _uWork.ComitAsync($"{invoiceEntity.RequestFormId} kimlik numaralı talebe fatura girişi  yapıldı");
             result.Data = invoiceEntity.Id;
             return result;
 
@@ -51,6 +51,33 @@ namespace Proje1.Aplication.Services.Implementation
         {
             var result = new Result<List<InvoiceDto>>();
             var ınvoicesEntity = await _uWork.GetRepository<Invoice>().GetAllAsync();
+            var invoiceDtos = ınvoicesEntity.ProjectTo<InvoiceDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = invoiceDtos;
+            return result;
+        }
+
+        public async Task<Result<List<InvoiceDto>>> GetInvoiceByCompany(GetInvoiceVM getInvoiceVM)
+        {
+            var result = new Result<List<InvoiceDto>>();
+            var ınvoicesEntity = await _uWork.GetRepository<Invoice>().GetByFilterAsync(x=>x.Department.CompanyId==getInvoiceVM.Id,"Department");
+            var invoiceDtos = ınvoicesEntity.ProjectTo<InvoiceDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = invoiceDtos;
+            return result;
+        }
+
+        public async Task<Result<List<InvoiceDto>>> GetInvoiceByDepartment(GetInvoiceVM getInvoiceVM)
+        {
+            var result = new Result<List<InvoiceDto>>();
+            var ınvoicesEntity = await _uWork.GetRepository<Invoice>().GetByFilterAsync(x => x.DepartmentId == getInvoiceVM.Id);
+            var invoiceDtos = ınvoicesEntity.ProjectTo<InvoiceDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = invoiceDtos;
+            return result;
+        }
+
+        public async Task<Result<List<InvoiceDto>>> GetInvoiceByRequestForm(GetInvoiceVM getInvoiceVM)
+        {
+            var result = new Result<List<InvoiceDto>>();
+            var ınvoicesEntity = await _uWork.GetRepository<Invoice>().GetByFilterAsync(x => x.RequestFormId == getInvoiceVM.Id);
             var invoiceDtos = ınvoicesEntity.ProjectTo<InvoiceDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = invoiceDtos;
             return result;

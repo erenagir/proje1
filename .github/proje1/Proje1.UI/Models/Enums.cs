@@ -2,11 +2,11 @@
 {
     public enum Roles
     {
-        admin = 1,
-        request,
-        recive,
-        accounting,
-        management
+        Admin = 1,
+        Request,
+        Recive,
+        Accounting,
+        Management
 
 
     }

@@ -115,7 +115,7 @@ namespace Proje1.Aplication.Services.Implementation
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, account.UserName),
-                    //  new Claim(ClaimTypes.Role,account.Person.Role.ToString()),
+                    new Claim(ClaimTypes.Role,account.Role.ToString()),
                     new Claim(ClaimTypes.PrimarySid, account.departmantId.ToString()),
 
                     new Claim(ClaimTypes.Sid, account.Id.ToString()),

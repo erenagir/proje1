@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3JltQnWtKmD/Cem83hzFam1N+PxLLE1sn7xIICiblMAr/PT+DZ/Kxfx403NCWThZ7UwY5AqeRMCDAs2su/SNlQ==",
+  "dgSpecHash": "N63t0i7/wx0yIwbt+GUxir5+KKwXgRP/iL2AzaC0aPLuhXv74b48muZimauHRgfxwV7UjAWBVk23Gbelisdnpw==",
   "success": true,
   "projectFilePath": "C:\\Users\\erenagir\\Desktop\\çalışma\\proje\\proje1\\.github\\proje1\\Proje1.UI\\Proje1.UI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\erenagir\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\erenagir\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"

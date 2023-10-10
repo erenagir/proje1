@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Proje1.Domain.Entities;
 using Proje1.Domain.Services.Abstraction;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Proje1.Domain.Services.Implementation
         public string Username => GetClaim(ClaimTypes.Name) != null ? GetClaim(ClaimTypes.Name) : null;
 
         public string Email => GetClaim(ClaimTypes.Email) != null ? GetClaim(ClaimTypes.Email) : null;
+        public Roles? Role => GetClaim(ClaimTypes.Role) != null ? (Roles)Enum.Parse(typeof(Roles), GetClaim(ClaimTypes.Role)) : null;
 
         public int? UserId => GetClaim(ClaimTypes.Sid) != null ? int.Parse(GetClaim(ClaimTypes.Sid)) : null;
 

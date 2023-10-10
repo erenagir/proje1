@@ -10,5 +10,6 @@ namespace Proje1.UI.Models.Dtos.Person
     {
         public string Token { get; set; }
         public DateTime Expiredate { get; set; }
+        public Roles Role { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Proje1.UI.Exceptions;
 using Proje1.UI.Models.Dtos.Person;
 using Proje1.UI.Services.Abstraction;
 using RestSharp;
@@ -9,7 +8,6 @@ namespace Proje1.UI.Services.Implementation
 {
     public class RestService : IRestService
     {
-
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _contextAccessor;
 
@@ -18,6 +16,9 @@ namespace Proje1.UI.Services.Implementation
             _configuration = configuration;
             _contextAccessor = contextAccessor;
         }
+
+
+
         #region Post İstekleri
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-            CheckResponse(response);
+           // CheckResponse(response);
             return response;
         }
 
@@ -74,7 +75,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-            CheckResponse(response);
+           // CheckResponse(response);
             return response;
         }
 
@@ -106,7 +107,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-            CheckResponse(response);
+          //  CheckResponse(response);
             return response;
         }
 
@@ -137,7 +138,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-            CheckResponse(response);
+         //   CheckResponse(response);
             return response;
         }
 
@@ -160,7 +161,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-            CheckResponse(response);
+           // CheckResponse(response);
             return response;
         }
 
@@ -185,11 +186,13 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-            CheckResponse(response);
+           // CheckResponse(response);
             return response;
         }
 
         #endregion
+
+
 
         #region Private Methods
 
@@ -202,17 +205,17 @@ namespace Proje1.UI.Services.Implementation
             return tokenDto;
         }
 
-        private void CheckResponse<TResponse>(RestResponse<TResponse> response)
-        {
-            if (response.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthenticatedException();
-            }
-            else if (response.StatusCode == HttpStatusCode.Forbidden)
-            {
-                throw new UnauthorizedException();
-            }
-        }
+        //private void CheckResponse<TResponse>(RestResponse<TResponse> response)
+        //{
+        //    if (response.StatusCode == HttpStatusCode.Unauthorized)
+        //    {
+        //        throw new UnauthenticatedException();
+        //    }
+        //    else if (response.StatusCode == HttpStatusCode.Forbidden)
+        //    {
+        //        throw new UnauthorizedException();
+        //    }
+        //}
 
         private void AddFormParametersToRequest(RestRequest request, Dictionary<string, string> parameters)
         {

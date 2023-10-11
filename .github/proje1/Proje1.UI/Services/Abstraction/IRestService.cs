@@ -4,7 +4,6 @@ namespace Proje1.UI.Services.Abstraction
 {
     public interface IRestService
     {
-
         Task<RestResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest requestModel, string endpointUrl, bool tokenRequired = true);
 
         Task<RestResponse<TResponse>> PostAsync<TResponse>(string endpointUrl, bool tokenRequired = true);

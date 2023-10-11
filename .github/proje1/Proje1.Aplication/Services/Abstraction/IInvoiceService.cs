@@ -20,6 +20,7 @@ namespace Proje1.Aplication.Services.Abstraction
 
         Task<Result<List<InvoiceDto>>> GetInvoiceByRequestForm(GetInvoiceVM getInvoiceVM);
 
+        Task<Result<int>> UpdateInvoice(UpdateInvoiceVM updateInvoiceVM);
 
 
     }

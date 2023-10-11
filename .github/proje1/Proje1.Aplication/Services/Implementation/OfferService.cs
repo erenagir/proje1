@@ -81,13 +81,15 @@ namespace Proje1.Aplication.Services.Implementation
         [ValidationBehavior(typeof(UpdateOfferVM))]
         public async Task<Result<int>> UpdateOffer(UpdateOfferVM updateOfferVM)
         {
-           var existsEntity=await _uWork.GetRepository<Offer>().GetById(updateOfferVM.Id);
+            var existsEntity = await _uWork.GetRepository<Offer>().GetById(updateOfferVM.Id);
             if (existsEntity == null)
             {
                 throw new NotFoundException("teklif bilgisi bulunamadı");
 
             }
-           existsEntity=_mapper.Map(updateOfferVM, existsEntity);
+            existsEntity = _mapper.Map(updateOfferVM, existsEntity);
+            _uWork.GetRepository<Offer>().Update(existsEntity);
+            _uWork.ComitAsync($"{existsEntity.Id} kimlik numaralı teklif güncellendi");
             var result = new Result<int>();
             result.Data = existsEntity.Id;
             return result;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proje1.UI.Wrapper
+namespace Proje1.UI.Models
 {
     public class Result<T> where T : new()
     {

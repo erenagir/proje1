@@ -8,6 +8,7 @@ using Proje1.Aplication.Models.RequestModels.Invoices;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Aplication.Services.Abstraction;
+using Proje1.Aplication.Services.Implementation;
 using Proje1.Aplication.Wrapper;
 using Proje1.Domain.Entities;
 
@@ -53,9 +54,17 @@ namespace Proje1.Api.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<Result<int>>> CreateCompany(CreateInvoiceVM createInvoiceVM)
+        public async Task<ActionResult<Result<int>>> CreateInvoice(CreateInvoiceVM createInvoiceVM)
         {
             var item = await _service.CreateInvoice(createInvoiceVM);
+            return Ok(item);
+        }
+
+
+        [HttpPut("update")]
+        public async Task<ActionResult<Result<int>>> UpdateInvoice (UpdateInvoiceVM updateInvoiceVM)
+        {
+            var item = await _service.UpdateInvoice(updateInvoiceVM);
             return Ok(item);
         }
     }

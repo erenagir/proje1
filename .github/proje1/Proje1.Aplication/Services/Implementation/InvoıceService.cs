@@ -11,6 +11,7 @@ using Proje1.Aplication.Validators.Invoıces;
 using Proje1.Aplication.Wrapper;
 using Proje1.Domain.Entities;
 using Proje1.Domain.UWork;
+using Proje1.Utils;
 
 namespace Proje1.Aplication.Services.Implementation
 {
@@ -29,8 +30,8 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<int>> CreateInvoice(CreateInvoiceVM createInvoiceVM)
         {
             var result = new Result<int>();
-            var requestExists = await _uWork.GetRepository<RequestForm>().AnyAsync(x => x.Id == createInvoiceVM.RequestFormId);
-            if (!requestExists)
+            var requestExists = await _uWork.GetRepository<RequestForm>().GetSingleByFilterAsync(x=>x.Id==createInvoiceVM.RequestFormId,"Person");
+            if (requestExists is null)
             {
                 throw new NotFoundException($"{createInvoiceVM.RequestFormId} bilgili talep bulunamdı");
 
@@ -38,11 +39,12 @@ namespace Proje1.Aplication.Services.Implementation
             var invoiceEntity = _mapper.Map<Invoice>(createInvoiceVM);
             _uWork.GetRepository<Invoice>().Add(invoiceEntity);
             await _uWork.ComitAsync($"{invoiceEntity.RequestFormId} kimlik numaralı talebe fatura girişi  yapıldı");
+           // MailUtils.SendMail(requestExists.Person.Email, "ürün girişi", "talebiniz tamamlanmıştır");
             result.Data = invoiceEntity.Id;
             return result;
 
 
-           //mail servisi ekle
+       
 
 
         }
@@ -81,6 +83,27 @@ namespace Proje1.Aplication.Services.Implementation
             var invoiceDtos = ınvoicesEntity.ProjectTo<InvoiceDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = invoiceDtos;
             return result;
+        }
+
+        public async Task<Result<int>> UpdateInvoice(UpdateInvoiceVM updateInvoiceVM)
+        {
+            var existsEntity = await _uWork.GetRepository<Invoice>().GetById(updateInvoiceVM.Id);
+            if (existsEntity == null)
+            {
+                throw new NotFoundException("fatura bilgisi bulunamadı");
+
+            }
+            existsEntity = _mapper.Map(updateInvoiceVM, existsEntity);
+            var result = new Result<int>();
+            result.Data = existsEntity.Id;
+            _uWork.GetRepository<Invoice>().Update(existsEntity);
+            _uWork.ComitAsync($"{existsEntity.Id} kimlik numaralı fatura güncellendi");
+            return result;
+
+
+
+
+            
         }
     }
 }

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Proje1.Domain.Entities
 {
-    public class Person:BaseEntity
+    public class Person : BaseEntity
     {
         public int departmantId { get; set; }
-       
+
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
@@ -19,15 +19,15 @@ namespace Proje1.Domain.Entities
         public string UserName { get; set; }
         public string Password { get; set; }
         public Roles Role { get; set; }
-       // public Authority Authority  { get; set; }
+        // public Authority Authority  { get; set; }
         public Department Department { get; set; }
-        public  ICollection<RequestForm> RequestForms { get; set; }
-        public  ICollection<Report> Reports { get; set; }
+        public ICollection<RequestForm> RequestForms { get; set; }
+        public ICollection<Report> Reports { get; set; }
     }
 
-   public enum Roles
+    public enum Roles
     {
-        admin=1,
+        admin = 1,
         request,
         recive,
         accounting,

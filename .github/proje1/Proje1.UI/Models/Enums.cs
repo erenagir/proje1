@@ -1,13 +1,10 @@
 ﻿namespace Proje1.UI.Models
 {
-    public enum Roles
+    public enum OfferStatus
     {
-        Admin = 1,
-        Request,
-        Recive,
-        Accounting,
-        Management
-
+        pending = 1,//bekleme
+        approved,//onaylandı
+        refuse,//ret 
 
     }
     public enum Status
@@ -17,4 +14,15 @@
         refuse,//ret 
         Completed//tamamlandı
     }
+    public enum Roles
+    {
+        admin = 1,
+        request,
+        recive,
+        accounting,
+        management
+
+
+    }
+
 }

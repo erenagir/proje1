@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using Proje1.Domain.Common;
 using Proje1.Domain.Repositories;
 using Proje1.Persistence.Context;
@@ -47,6 +48,7 @@ namespace Proje1.Persistence.Repository
 
         public async Task<T> GetById(object id)
         {
+
             var item =await _dbSet.FindAsync(id);
             return item;
         }

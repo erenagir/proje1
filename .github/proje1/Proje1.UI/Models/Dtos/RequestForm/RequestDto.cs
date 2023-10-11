@@ -8,7 +8,5 @@
         public string Detail { get; set; }
         public string Products { get; set; }
         public Status Status { get; set; }
-
     }
-    
 }

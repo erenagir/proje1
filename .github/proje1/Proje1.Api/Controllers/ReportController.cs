@@ -30,13 +30,13 @@ namespace Proje1.Api.Controllers
           var item=  _service.GetAllReport();
           return Ok(item);
         }
-        [HttpGet("get/{PersonId}")]
+        [HttpGet("getbyPerson/{PersonId}")]
         public async Task<ActionResult<Result<List<CompanyDto>>>> GetReportbyPerson(int PersonId)
         {
             var item = _service.GetReportByPerson(new GetReportVM { Id = PersonId });
             return Ok(item);
         }
-        [HttpGet("get/{DepartmentId}")]
+        [HttpGet("getbyDepartment/{DepartmentId}")]
         public async Task<ActionResult<Result<List<CompanyDto>>>> GetReportByDepartment(int DepartmentId)
         {
             var item = _service.GetReporByDepartment(new GetReportVM { Id = DepartmentId });

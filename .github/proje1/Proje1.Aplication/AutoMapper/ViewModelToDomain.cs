@@ -18,7 +18,7 @@ namespace Proje1.Aplication.AutoMapper
             CreateMap<CreateCompanyVM, Company>();
             CreateMap<CreateDepartmentVM, Department>();
             CreateMap<CreateInvoiceVM, Invoice>();
-
+            CreateMap<UpdateInvoiceVM, Invoice>();
 
             CreateMap<ReisterVM, Person>();
             CreateMap<CreateOfferVM, Offer>()

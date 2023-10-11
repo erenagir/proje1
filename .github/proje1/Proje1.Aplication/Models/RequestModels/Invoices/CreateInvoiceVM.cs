@@ -8,6 +8,7 @@ namespace Proje1.Aplication.Models.RequestModels.Invoices
 {
     public class CreateInvoiceVM
     {
+        public int DepartmentId { get; set; }
         public int RequestFormId { get; set; }
         public DateTime InvoiceDate { get; set; }
         public string CompanyName { get; set; }

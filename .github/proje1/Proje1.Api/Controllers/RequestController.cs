@@ -30,6 +30,13 @@ namespace Proje1.Api.Controllers
             return Ok(item);
         }
 
+        [HttpGet("get/{departmentId}")]
+        public async Task<ActionResult<Result<List<RequestDto>>>> GetRequestByDepartment(int departmentId)
+        {
+            var item = _requestFormService.GetRequestByDepartment(new GetRequestVM { Id= departmentId });
+            return Ok(item);
+        }
+        
         [HttpPost("create")]
         public async Task<ActionResult<Result<bool>>> CreateRequest(CreateRequestVM requestVM)
         {

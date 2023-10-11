@@ -33,7 +33,7 @@ namespace Proje1.Api.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<Result<int>>> CreateCompany(CreateDepartmentVM createDepartmentVM)
+        public async Task<ActionResult<Result<int>>> CreateDepartment(CreateDepartmentVM createDepartmentVM)
         {
             var item = await _service.CreateDepartment(createDepartmentVM);
             return Ok(item);

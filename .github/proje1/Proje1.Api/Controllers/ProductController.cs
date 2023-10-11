@@ -19,13 +19,24 @@ namespace Proje1.Api.Controllers
             _productSevice = productSevice;
         }
 
-        [HttpGet("get/{departmentId}")]
-        public async Task<ActionResult<Result<List<ProductDto>>>> GetProductsByDepartment(int departmentId)
+        [HttpGet("get")]
+        public async Task<ActionResult<Result<List<ProductDto>>>> GetAllProduct()
         {
-          var products=  _productSevice.GetAllProductsByDepartment(new GetAllProductByDepartmentVM { DepartmentId=departmentId});
+          var products=  _productSevice.GetAllProducts();
           return Ok(products);
         }
-
+        [HttpGet("getByDepartment/{departmentId}")]
+        public async Task<ActionResult<Result<List<ProductDto>>>> GetProductsByDepartment(int departmentId)
+        {
+            var products = _productSevice.GetAllProductsByDepartment(new GetProductVM { Id = departmentId });
+            return Ok(products);
+        }
+        [HttpGet("getbyCompany/{companyId}")]
+        public async Task<ActionResult<Result<List<ProductDto>>>> GetProductsByCompany(int companyId)
+        {
+            var products = _productSevice.GetAllProductsByCompany(new GetProductVM { Id = companyId });
+            return Ok(products);
+        }
         [HttpPost("Create")]
         public async Task<ActionResult<Result<int>>> CreateProduct(CreateProductVM createProductVM)
         {

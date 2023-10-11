@@ -23,6 +23,32 @@ namespace Proje1.Aplication.Services.Implementation
             _uWork = uWork;
             _mapper = mapper;
         }
+        public async Task<Result<List<ProductDto>>> GetAllProducts()
+        {
+            var result = new Result<List<ProductDto>>();
+            var products = await _uWork.GetRepository<Product>().GetAllAsync();
+            var productDtos = products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = productDtos;
+            return result;
+        }
+
+        public async Task<Result<List<ProductDto>>> GetAllProductsByCompany(GetProductVM getProductVM)
+        {
+            var result = new Result<List<ProductDto>>();
+            var products = await _uWork.GetRepository<Product>().GetByFilterAsync(x => x.Department.CompanyId == getProductVM.Id,"Department");
+            var productDtos = products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = productDtos;
+            return result;
+        }
+        public async Task<Result<List<ProductDto>>> GetAllProductsByDepartment(GetProductVM getProductVM)
+        {
+            var result = new Result<List<ProductDto>>();
+            var products = await _uWork.GetRepository<Product>().GetByFilterAsync(x => x.DepartmentId == getProductVM.Id);
+            var productDtos = products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = productDtos;
+            return result;
+
+        }
 
         public async Task<Result<int>> CreateProduct(CreateProductVM createProductVM)
         {
@@ -34,15 +60,7 @@ namespace Proje1.Aplication.Services.Implementation
             return result;
         }
 
-        public async Task<Result<List<ProductDto>>> GetAllProductsByDepartment(GetAllProductByDepartmentVM getAllProductByDepartmentVM )
-        {
-            var result = new Result<List<ProductDto>>();
-            var products = await _uWork.GetRepository<Product>().GetByFilterAsync(x=>x.DepartmentId==getAllProductByDepartmentVM.DepartmentId);
-            var productDtos = products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider).ToList();
-            result.Data = productDtos;
-            return result;
 
-        }
 
         public async Task<Result<bool>> UseProduct(UpdateProductVM updateProductVM)
         {
@@ -59,8 +77,10 @@ namespace Proje1.Aplication.Services.Implementation
             var productEntity = await _uWork.GetRepository<Product>().GetById(updateProduct.Id);
             productEntity.Stock += updateProduct.Stock;
             _uWork.GetRepository<Product>().Update(productEntity);
-            result.Data = await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün stok eklemsi yapıldı" );
+            result.Data = await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün stok eklemsi yapıldı");
             return result;
         }
+
+
     }
 }

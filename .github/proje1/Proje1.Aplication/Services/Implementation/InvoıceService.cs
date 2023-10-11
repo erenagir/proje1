@@ -26,29 +26,10 @@ namespace Proje1.Aplication.Services.Implementation
             _mapper = mapper;
         }
 
-        [ValidationBehavior(typeof(CreateInvoicesValidator))]
-        public async Task<Result<int>> CreateInvoice(CreateInvoiceVM createInvoiceVM)
-        {
-            var result = new Result<int>();
-            var requestExists = await _uWork.GetRepository<RequestForm>().GetSingleByFilterAsync(x=>x.Id==createInvoiceVM.RequestFormId,"Person");
-            if (requestExists is null)
-            {
-                throw new NotFoundException($"{createInvoiceVM.RequestFormId} bilgili talep bulunamdı");
 
-            }
-            var invoiceEntity = _mapper.Map<Invoice>(createInvoiceVM);
-            _uWork.GetRepository<Invoice>().Add(invoiceEntity);
-            await _uWork.ComitAsync($"{invoiceEntity.RequestFormId} kimlik numaralı talebe fatura girişi  yapıldı");
-           // MailUtils.SendMail(requestExists.Person.Email, "ürün girişi", "talebiniz tamamlanmıştır");
-            result.Data = invoiceEntity.Id;
-            return result;
-
+        #region get_istekleri
 
        
-
-
-        }
-
         public async Task<Result<List<InvoiceDto>>> GetAllInvoice()
         {
             var result = new Result<List<InvoiceDto>>();
@@ -61,7 +42,7 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<List<InvoiceDto>>> GetInvoiceByCompany(GetInvoiceVM getInvoiceVM)
         {
             var result = new Result<List<InvoiceDto>>();
-            var ınvoicesEntity = await _uWork.GetRepository<Invoice>().GetByFilterAsync(x=>x.Department.CompanyId==getInvoiceVM.Id,"Department");
+            var ınvoicesEntity = await _uWork.GetRepository<Invoice>().GetByFilterAsync(x => x.Department.CompanyId == getInvoiceVM.Id, "Department");
             var invoiceDtos = ınvoicesEntity.ProjectTo<InvoiceDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = invoiceDtos;
             return result;
@@ -85,6 +66,30 @@ namespace Proje1.Aplication.Services.Implementation
             return result;
         }
 
+
+
+        #endregion
+
+        [ValidationBehavior(typeof(CreateInvoicesValidator))]
+        public async Task<Result<int>> CreateInvoice(CreateInvoiceVM createInvoiceVM)
+        {
+            var result = new Result<int>();
+            var requestExists = await _uWork.GetRepository<RequestForm>().GetSingleByFilterAsync(x => x.Id == createInvoiceVM.RequestFormId, "Person");
+            if (requestExists is null)
+            {
+                throw new NotFoundException($"{createInvoiceVM.RequestFormId} bilgili talep bulunamdı");
+
+            }
+            var invoiceEntity = _mapper.Map<Invoice>(createInvoiceVM);
+            _uWork.GetRepository<Invoice>().Add(invoiceEntity);
+            await _uWork.ComitAsync($"{invoiceEntity.RequestFormId} kimlik numaralı talebe fatura girişi  yapıldı");
+            // MailUtils.SendMail(requestExists.Person.Email, "ürün girişi", "talebiniz tamamlanmıştır");
+            result.Data = invoiceEntity.Id;
+            return result;
+        }
+
+
+        [ValidationBehavior(typeof(UpdateInvoiceValidator))]
         public async Task<Result<int>> UpdateInvoice(UpdateInvoiceVM updateInvoiceVM)
         {
             var existsEntity = await _uWork.GetRepository<Invoice>().GetById(updateInvoiceVM.Id);
@@ -102,8 +107,6 @@ namespace Proje1.Aplication.Services.Implementation
 
 
 
-
-            
         }
     }
 }

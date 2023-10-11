@@ -25,10 +25,10 @@ namespace Proje1.Api.Controllers
             _service = service;
         }
 
-        [HttpGet("get")]
-        public async Task<ActionResult<Result<List<OfferDto>>>> GetAllOffer(GetAllOfferByRequestVM getAllOfferByRequestVM)
+        [HttpGet("get/{requestId}")]
+        public async Task<ActionResult<Result<List<OfferDto>>>> GetAllOffer(int requestId)
         {
-            var item = _service.GetAllOfferByRequest(getAllOfferByRequestVM);
+            var item = _service.GetAllOfferByRequest(new GetAllOfferByRequestVM { Id=requestId} );
             return Ok(item);
         }
 
@@ -40,12 +40,17 @@ namespace Proje1.Api.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<ActionResult<Result<int>>> UpdateRequest(UpdateOfferVM updateOfferVM)
+        public async Task<ActionResult<Result<int>>> UpdateOffer(UpdateOfferVM updateOfferVM)
         {
             var item = await _service.UpdateOffer(updateOfferVM);
             return Ok(item);
         }
-
+        [HttpDelete("delete/{Id}")]
+        public async Task<ActionResult<Result<int>>> DeleteOffer(int Id)
+        {
+            var item = await _service.DeleteOffer(new DeleteOfferVM { Id=Id});
+            return Ok(item);
+        }
 
 
     }

@@ -14,9 +14,18 @@ namespace Proje1.Domain.Entities
         public string Address { get; set; }
         public string  CompanyPhone { get; set; }
         public string CompanyEmail { get; set; }
-       public double TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
+        public OfferStatus offerStatus { get; set; }
         public  RequestForm RequestForm { get; set; }
 
         
+    }
+
+    public enum OfferStatus
+    {
+        pending = 1,//bekleme
+        approved,//onaylandı
+        refuse,//ret 
+
     }
 }

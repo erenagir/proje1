@@ -293,6 +293,11 @@ namespace Proje1.Persistence.Migrations
                         .HasColumnName("TOTAL_PRICE")
                         .HasColumnOrder(8);
 
+                    b.Property<int>("offerStatus")
+                        .HasColumnType("int")
+                        .HasColumnName("OFFER_STATUS")
+                        .HasColumnOrder(9);
+
                     b.HasKey("Id");
 
                     b.HasIndex("RequestformId");

@@ -39,6 +39,11 @@ namespace Proje1.Persistence.Mapping
             builder.Property(x => x.TotalPrice)
                 .HasColumnName("TOTAL_PRICE")
                 .HasColumnOrder(8);
+            
+            builder.Property(x => x.offerStatus)
+                .HasColumnName("OFFER_STATUS")
+                .HasColumnOrder(9);
+
 
             builder.HasOne(x => x.RequestForm)
                 .WithMany(x => x.Offers)

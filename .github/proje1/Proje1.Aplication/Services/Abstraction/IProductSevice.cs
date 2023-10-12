@@ -17,5 +17,6 @@ namespace Proje1.Aplication.Services.Abstraction
         Task<Result<int>> CreateProduct(CreateProductVM createProductVM);
         Task<Result<bool>> UseProduct(UpdateProductVM UpdateProductVM);
         Task<Result<bool>> AddProduct(UpdateProductVM updateProduct);
+        Task<Result<int>> DeleteProduct(DeleteProductVM deleteProductVM);
     }
 }

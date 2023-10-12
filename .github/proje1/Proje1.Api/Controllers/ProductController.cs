@@ -56,7 +56,12 @@ namespace Proje1.Api.Controllers
             var item = await _productSevice.AddProduct(updateProductVM);
             return Ok(item);
         }
-
+        [HttpDelete("delete/{Id}")]
+        public async Task<ActionResult<Result<int>>> DeleteOffer(int Id)
+        {
+            var item = await _productSevice.DeleteProduct(new DeleteProductVM { Id = Id });
+            return Ok(item);
+        }
 
     }
 }

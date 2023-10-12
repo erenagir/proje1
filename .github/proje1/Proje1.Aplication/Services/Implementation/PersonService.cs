@@ -36,17 +36,17 @@ namespace Proje1.Aplication.Services.Implementation
 
         public async Task<Result<List<PersonDto>>> GetAllPersons()
         {
-            var result=new Result<List<PersonDto>>();
-            var personEntites=await _uWork.GetRepository<Person>().GetAllAsync();
-            var personDtos= personEntites.ProjectTo<PersonDto>(_mapper.ConfigurationProvider).ToList();
-            result.Data= personDtos;
+            var result = new Result<List<PersonDto>>();
+            var personEntites = await _uWork.GetRepository<Person>().GetAllAsync();
+            var personDtos = personEntites.ProjectTo<PersonDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = personDtos;
             return result;
         }
 
         public async Task<Result<List<PersonDto>>> GetPersonsByCompany(GetPersonVM getPersonVM)
         {
             var result = new Result<List<PersonDto>>();
-            var personEntites = await _uWork.GetRepository<Person>().GetByFilterAsync(x=>x.Department.CompanyId==getPersonVM.Id,"Department");
+            var personEntites = await _uWork.GetRepository<Person>().GetByFilterAsync(x => x.Department.CompanyId == getPersonVM.Id, "Department");
             var personDtos = personEntites.ProjectTo<PersonDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = personDtos;
             return result;
@@ -55,7 +55,7 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<List<PersonDto>>> GetPersonsByDepartment(GetPersonVM getPersonVM)
         {
             var result = new Result<List<PersonDto>>();
-            var personEntites = await _uWork.GetRepository<Person>().GetByFilterAsync(x => x.departmantId == getPersonVM.Id );
+            var personEntites = await _uWork.GetRepository<Person>().GetByFilterAsync(x => x.departmantId == getPersonVM.Id);
             var personDtos = personEntites.ProjectTo<PersonDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = personDtos;
             return result;
@@ -102,26 +102,43 @@ namespace Proje1.Aplication.Services.Implementation
             }
             //Gelen model person türüne maplandi.
             var userEntity = _mapper.Map<Person>(reisterVM);
-            
-           
+
+
             //Kullanıcının parolasını şifreleyerek kaydedelim.
             userEntity.Password = CipherUtils
                 .EncryptString(_configuration["AppSettings:SecretKey"], userEntity.Password);
 
-            
+
 
             _uWork.GetRepository<Person>().Add(userEntity);
-            
+
             result.Data = await _uWork.ComitAsync($"{userEntity.Id} kimlik numaralı kullanıcı oluşturuldu");
 
             return result;
-
-
-
-
-            
         }
 
+        public async Task<Result<int>> UpdatePerson(UpdatePersonVM updatePersonVM)
+        {
+
+            var existsEntity = await _uWork.GetRepository<Person>().GetById(updatePersonVM.Id);
+            if (existsEntity == null)
+            {
+                throw new NotFoundException("personel bilgisi bulunamadı");
+
+            }
+            existsEntity = _mapper.Map(updatePersonVM, existsEntity);
+            existsEntity.Password = CipherUtils
+               .EncryptString(_configuration["AppSettings:SecretKey"], updatePersonVM.Password);
+            _uWork.GetRepository<Person>().Update(existsEntity);
+            await _uWork.ComitAsync($"{existsEntity.Id} kimlik numaralı  personel güncellendi");
+            var result = new Result<int>();
+            result.Data = existsEntity.Id;
+            return result;
+        }
+
+       
+        
+        
         private string GenerateJwtToken(Person account, DateTime expireDate)
         {
             var secretkey = _configuration["Jwt:SigningKey"];

@@ -18,6 +18,8 @@ namespace Proje1.Aplication.Services.Abstraction
         Task<Result<List<PersonDto>>> GetPersonsByCompany(GetPersonVM getPersonVM);
         Task<Result<List<PersonDto>>> GetPersonsByDepartment(GetPersonVM getPersonVM);
         Task<Result<List<PersonDto>>> GetPersonsById(GetPersonVM getPersonVM);
+        Task<Result<int>> UpdatePerson(UpdatePersonVM updatePersonVM);
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Proje1.Aplication.Exceptions;
 using Proje1.Aplication.Models.Dtos.Product;
 using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Aplication.Services.Abstraction;
@@ -35,7 +36,7 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<List<ProductDto>>> GetAllProductsByCompany(GetProductVM getProductVM)
         {
             var result = new Result<List<ProductDto>>();
-            var products = await _uWork.GetRepository<Product>().GetByFilterAsync(x => x.Department.CompanyId == getProductVM.Id,"Department");
+            var products = await _uWork.GetRepository<Product>().GetByFilterAsync(x => x.Department.CompanyId == getProductVM.Id, "Department");
             var productDtos = products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = productDtos;
             return result;
@@ -81,6 +82,26 @@ namespace Proje1.Aplication.Services.Implementation
             return result;
         }
 
+        public async Task<Result<int>> DeleteProduct(DeleteProductVM deleteProductVM)
+        {
+            var result = new Result<int>();
+            var productEntity = await _uWork.GetRepository<Product>().GetById(deleteProductVM.Id);
+            if (productEntity is null)
+            {
+                throw new NotFoundException("ürün bilgisi bulunamadı");
+            }
+            if (productEntity.Stock != 0)
+            {
+                throw new Exception("silinecek ürün stoklarda bulunmamalıdır");
 
+            }
+            _uWork.GetRepository<Product>().Delete(productEntity);
+            
+            await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün silindi");
+            result.Data = productEntity.Id;
+            
+            return result;
+
+        }
     }
 }

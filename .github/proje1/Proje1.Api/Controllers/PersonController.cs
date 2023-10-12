@@ -3,6 +3,7 @@ using Proje1.Aplication.Models.Dtos.Invoice;
 using Proje1.Aplication.Models.Dtos.Person;
 using Proje1.Aplication.Models.Dtos.Product;
 using Proje1.Aplication.Models.RequestModels.Invoices;
+using Proje1.Aplication.Models.RequestModels.Offers;
 using Proje1.Aplication.Models.RequestModels.Person;
 using Proje1.Aplication.Models.RequestModels.Product;
 using Proje1.Aplication.Services.Abstraction;
@@ -47,6 +48,16 @@ namespace Proje1.Api.Controllers
             var item = _personService.GetPersonsById(new GetPersonVM { Id = ýd });
             return Ok(item);
         }
+
+        [HttpPut("update")]
+        public async Task<ActionResult<Result<int>>> UpdateOfferbyStatus(UpdatePersonVM updatePersonVM)
+        {
+            var item = await _personService.UpdatePerson(updatePersonVM);
+            return Ok(item);
+        }
+
+
+
 
         [HttpPost("create")]
         public async Task<ActionResult<Result<bool>>> CreatePerson(ReisterVM reisterVM)

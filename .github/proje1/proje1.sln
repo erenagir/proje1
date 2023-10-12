@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proje1.Utils", "Proje1.Util
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Presentation", "4-Presentation", "{2F41F924-722E-4E83-B62F-627F2F73410A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proje1.UI", "Proje1.UI\Proje1.UI.csproj", "{3A3F24A8-6B8E-4A45-9884-0BD65EA51EE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proje1.UI", "Proje1.UI\Proje1.UI.csproj", "{3A3F24A8-6B8E-4A45-9884-0BD65EA51EE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

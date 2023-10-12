@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Proje1.UI.Exceptions;
 using Proje1.UI.Models.Dtos.Person;
 using Proje1.UI.Services.Abstraction;
 using RestSharp;
@@ -205,17 +206,17 @@ namespace Proje1.UI.Services.Implementation
             return tokenDto;
         }
 
-        //private void CheckResponse<TResponse>(RestResponse<TResponse> response)
-        //{
-        //    if (response.StatusCode == HttpStatusCode.Unauthorized)
-        //    {
-        //        throw new UnauthenticatedException();
-        //    }
-        //    else if (response.StatusCode == HttpStatusCode.Forbidden)
-        //    {
-        //        throw new UnauthorizedException();
-        //    }
-        //}
+        private void CheckResponse<TResponse>(RestResponse<TResponse> response)
+        {
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                throw new UnauthenticatedException();
+            }
+            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                throw new UnauthorizedException();
+            }
+        }
 
         private void AddFormParametersToRequest(RestRequest request, Dictionary<string, string> parameters)
         {

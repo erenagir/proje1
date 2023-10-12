@@ -19,7 +19,7 @@ namespace Proje1.Utils
             SmtpClient smtpClient = new SmtpClient(/*"smtp.gmail.com", 587*/);
             smtpClient.Credentials = new NetworkCredential("proje1deneme@hotmail.com", "sifre1919");
             smtpClient.Port = 587;
-            smtpClient.Host = "smtp.live.com";
+            smtpClient.Host = "smtp.office365.com";
             smtpClient.EnableSsl = true;
             message1.To.Add(mailAdress);
             message1.From=new MailAddress("proje1deneme@hotmail.com");

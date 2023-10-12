@@ -1,3 +1,5 @@
+using Proje1.UI.Configurations;
+
 namespace Proje1.UI
 {
     public class Program
@@ -8,7 +10,7 @@ namespace Proje1.UI
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+           
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -18,6 +20,7 @@ namespace Proje1.UI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            builder.Services.AddDIServices();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

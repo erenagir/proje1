@@ -1,0 +1,136 @@
+﻿<style>
+    .boyut{
+        width:70%;
+    }
+</style>
+<nav class="mt-2 position-sticky boyut">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+
+
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                    Şirket İşlemleri
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="@Url.Action("Create","Company")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Yeni Şirket
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("List","Company")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Şirket Düzenle
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                    Departman İşlemleri
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="@Url.Action("Create","Product")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Yeni departman
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("List","Product")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            departman Düzenle
+                        </p>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                    personel İşlemleri
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="@Url.Action("Create","Product")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Yeni personel
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("List","Product")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            personel Düzenle
+                        </p>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                    talep İşlemleri
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="@Url.Action("Create","Product")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Yeni talep
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("List","Product")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            talep Düzenle
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+
+
+
+
+
+
+
+
+    </ul>
+</nav>

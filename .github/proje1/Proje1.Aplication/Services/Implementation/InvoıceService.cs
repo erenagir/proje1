@@ -83,7 +83,7 @@ namespace Proje1.Aplication.Services.Implementation
             var invoiceEntity = _mapper.Map<Invoice>(createInvoiceVM);
             _uWork.GetRepository<Invoice>().Add(invoiceEntity);
             await _uWork.ComitAsync($"{invoiceEntity.RequestFormId} kimlik numaralı talebe fatura girişi  yapıldı");
-            // MailUtils.SendMail(requestExists.Person.Email, "ürün girişi", "talebiniz tamamlanmıştır");
+            MailUtils.SendMail(requestExists.Person.Email, "ürün girişi", "talebiniz tamamlanmıştır");
             result.Data = invoiceEntity.Id;
             return result;
         }

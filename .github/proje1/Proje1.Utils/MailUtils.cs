@@ -16,7 +16,7 @@ namespace Proje1.Utils
         public static void SendMail(string mailAdress,string title,string message)
         {
             MailMessage message1 = new MailMessage();
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient smtpClient = new SmtpClient(/*"smtp.gmail.com", 587*/);
             smtpClient.Credentials = new NetworkCredential("proje1deneme@hotmail.com", "sifre1919");
             smtpClient.Port = 587;
             smtpClient.Host = "smtp.live.com";

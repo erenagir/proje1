@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Proje1.Domain.UWork
 {
-    public interface IUWork
+    public interface IUWork:IDisposable
     {
         public IRepository<T> GetRepository<T>() where T : BaseEntity;
         public Task<bool> ComitAsync(string mesaage);

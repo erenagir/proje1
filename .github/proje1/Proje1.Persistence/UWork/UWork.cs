@@ -39,7 +39,7 @@ namespace Proje1.Persistence.UWork
             };
 
            // _repository.Add(typeof(IRepository<Report>), new Repository<Report>(_context));
-            GetRepository<Report>().Add(reportEntity);
+           GetRepository<Report>().Add(reportEntity);
 
             
 

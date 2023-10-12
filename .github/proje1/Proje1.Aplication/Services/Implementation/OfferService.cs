@@ -7,6 +7,7 @@ using Proje1.Aplication.Models.Dtos.Offers;
 using Proje1.Aplication.Models.RequestModels.Offers;
 using Proje1.Aplication.Services.Abstraction;
 using Proje1.Aplication.Validators.Invoıces;
+using Proje1.Aplication.Validators.Offers;
 using Proje1.Aplication.Wrapper;
 using Proje1.Domain.Entities;
 using Proje1.Domain.UWork;
@@ -32,17 +33,18 @@ namespace Proje1.Aplication.Services.Implementation
         }
         public async Task<Result<List<OfferDto>>> GetAllOfferByRequest(GetAllOfferByRequestVM getAllOfferByRequestVM)
         {
-            var requestExists = await _uWork.GetRepository<RequestForm>().AnyAsync(x => x.Id == getAllOfferByRequestVM.Id);
-            if (!requestExists)
-            {
-                throw new NotFoundException($"{getAllOfferByRequestVM.Id} nolu talep bulunmadı");
-            }
+            //var requestExists = await _uWork.GetRepository<RequestForm>().GetById( getAllOfferByRequestVM.Id);
+            //if (requestExists is null)
+            //{
+            //    throw new NotFoundException($"{getAllOfferByRequestVM.Id} nolu talep bulunmadı");
+            //}
 
             var result = new Result<List<OfferDto>>();
-            var offerEntites = await _uWork.GetRepository<Offer>().GetByFilterAsync(x => x.RequestformId == getAllOfferByRequestVM.Id);
-            var offerDtos = offerEntites.ProjectTo<OfferDto>(_mapper.ConfigurationProvider).ToList();
-            result.Data = offerDtos;
+            var ınvoicesEntity = await _uWork.GetRepository<Offer>().GetByFilterAsync(x => x.RequestformId == getAllOfferByRequestVM.Id);
+            var invoiceDtos = ınvoicesEntity.ProjectTo<OfferDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = invoiceDtos;
             return result;
+            
         }
 
         [ValidationBehavior(typeof(CreateOfferValidator))]
@@ -61,12 +63,12 @@ namespace Proje1.Aplication.Services.Implementation
             return result;
         }
 
-        [ValidationBehavior(typeof(CreateOfferValidator))]
+        [ValidationBehavior(typeof(DeleteOfferValidation))]
         public async Task<Result<int>> DeleteOffer(DeleteOfferVM deleteOfferVM)
         {
             var result = new Result<int>();
-            var existsEntity = _uWork.GetRepository<Offer>().GetById(deleteOfferVM.Id);
-            if (existsEntity == null)
+            var existsEntity = await _uWork.GetRepository<Offer>().GetSingleByFilterAsync(x=>x.Id==deleteOfferVM.Id);
+            if (existsEntity is null)
             {
                 throw new NotFoundException("silinecek teklif bilgisi bulunamadı");
 
@@ -78,10 +80,10 @@ namespace Proje1.Aplication.Services.Implementation
         }
 
 
-        [ValidationBehavior(typeof(UpdateOfferVM))]
+        [ValidationBehavior(typeof(UpdateOfferValidation))]
         public async Task<Result<int>> UpdateOffer(UpdateOfferVM updateOfferVM)
         {
-            var existsEntity = await _uWork.GetRepository<Offer>().GetById(updateOfferVM.Id);
+            var existsEntity =await _uWork.GetRepository<Offer>().GetById(updateOfferVM.Id);
             if (existsEntity == null)
             {
                 throw new NotFoundException("teklif bilgisi bulunamadı");

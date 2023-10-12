@@ -10,7 +10,7 @@ using Proje1.Domain.Entities;
 
 namespace Proje1.Aplication.AutoMapper
 {
-    public class ViewModelToDomain:Profile
+    public class ViewModelToDomain : Profile
     {
 
         public ViewModelToDomain()
@@ -20,14 +20,15 @@ namespace Proje1.Aplication.AutoMapper
             CreateMap<CreateInvoiceVM, Invoice>();
             CreateMap<UpdateInvoiceVM, Invoice>();
 
+
             CreateMap<ReisterVM, Person>();
             CreateMap<CreateOfferVM, Offer>()
-                 .ForMember(x => x.offerStatus, y => y.MapFrom(x => OfferStatus.pending)); 
+                 .ForMember(x => x.offerStatus, y => y.MapFrom(x => OfferStatus.pending));
+            CreateMap<UpdateOfferVM, Offer>();
 
-
-            CreateMap<CreateProductVM,Product>();
+            CreateMap<CreateProductVM, Product>();
             CreateMap<CreateRequestVM, RequestForm>()
-                .ForMember(x => x.Status,Y=>Y.MapFrom(e=>Status.pending));
+                .ForMember(x => x.Status, Y => Y.MapFrom(e => Status.pending));
 
 
             CreateMap<UpdateRequestVM, RequestForm>();

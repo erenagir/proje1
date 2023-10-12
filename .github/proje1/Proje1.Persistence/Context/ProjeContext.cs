@@ -2,14 +2,6 @@
 using Proje1.Domain.Common;
 using Proje1.Domain.Entities;
 using Proje1.Persistence.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Net;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proje1.Persistence.Context
 {
@@ -43,6 +35,15 @@ namespace Proje1.Persistence.Context
             modelBuilder.ApplyConfiguration(new ReportMapping());
             modelBuilder.ApplyConfiguration(new RequestFormMapping());
 
+            modelBuilder.Entity<Company>().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            modelBuilder.Entity<Department>().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            modelBuilder.Entity<Invoice>().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            modelBuilder.Entity<Offer>().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            modelBuilder.Entity<Person >().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            modelBuilder.Entity<Product>().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            modelBuilder.Entity<Report>().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            modelBuilder.Entity<RequestForm>().HasQueryFilter(x => x.IsDeleted == null || (x.IsDeleted.HasValue && !x.IsDeleted.Value));
+            
 
         }
 

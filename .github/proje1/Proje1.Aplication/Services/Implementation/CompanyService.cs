@@ -37,7 +37,9 @@ namespace Proje1.Aplication.Services.Implementation
             _uWork.GetRepository<Company>().Add(companyEntity);
             await _uWork.ComitAsync($"{companyEntity.CompanyName}  şirketi oluşturuldu");
             result.Data = companyEntity.Id;
+       
             return result;
+            
         }
 
         public async Task<Result<List<CompanyDto>>> GetAllCompany()

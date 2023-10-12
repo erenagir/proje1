@@ -3,12 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Proje1.Domain.Common;
 using Proje1.Domain.Repositories;
 using Proje1.Persistence.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proje1.Persistence.Repository
 {

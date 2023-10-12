@@ -96,5 +96,23 @@ namespace Proje1.Aplication.Services.Implementation
             result.Data = existsEntity.Id;
             return result;
         }
+
+        public async Task<Result<int>> UpdateOffer(UpdateOfferByStatusVM updateOfferByStatusVM)
+        {
+            
+            var existsEntity = await _uWork.GetRepository<Offer>().GetSingleByFilterAsync(x => x.Id == updateOfferByStatusVM.Id);
+            if (existsEntity is null)
+            {
+                throw new NotFoundException("güncellenecek teklif bilgisi bulunamadı");
+
+            }
+            existsEntity = _mapper.Map(updateOfferByStatusVM, existsEntity);
+            _uWork.GetRepository<Offer>().Update(existsEntity);
+            _uWork.ComitAsync($"{existsEntity.Id} kimlik numaralı teklif güncellendi");
+            var result = new Result<int>();
+            result.Data = existsEntity.Id;
+            return result;
+
+        }
     }
 }

@@ -45,6 +45,13 @@ namespace Proje1.Api.Controllers
             var item = await _service.UpdateOffer(updateOfferVM);
             return Ok(item);
         }
+
+        [HttpPut("updatebyStatus")]
+        public async Task<ActionResult<Result<int>>> UpdateOfferbyStatus(UpdateOfferByStatusVM updateOfferVM)
+        {
+            var item = await _service.UpdateOffer(updateOfferVM);
+            return Ok(item);
+        }
         [HttpDelete("delete/{Id}")]
         public async Task<ActionResult<Result<int>>> DeleteOffer(int Id)
         {

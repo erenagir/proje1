@@ -25,6 +25,7 @@ namespace Proje1.Aplication.AutoMapper
             CreateMap<CreateOfferVM, Offer>()
                  .ForMember(x => x.offerStatus, y => y.MapFrom(x => OfferStatus.pending));
             CreateMap<UpdateOfferVM, Offer>();
+            CreateMap<UpdateOfferByStatusVM, Offer>();
 
             CreateMap<CreateProductVM, Product>();
             CreateMap<CreateRequestVM, RequestForm>()

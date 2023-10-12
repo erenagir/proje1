@@ -19,5 +19,7 @@ namespace Proje1.Aplication.Services.Abstraction
         Task<Result<int>> CreateOffer(CreateOfferVM createOfferVM);
         Task<Result<int>> UpdateOffer(UpdateOfferVM updateOfferVM);
         Task<Result<int>> DeleteOffer(DeleteOfferVM deleteOfferVM);
+
+        Task<Result<int>> UpdateOffer(UpdateOfferByStatusVM updateOfferByStatusVM);
     }
 }

@@ -43,7 +43,7 @@ namespace Proje1.Api.Controllers
             return Ok(item);
         }
         [HttpGet("getById/{ýd}")]
-        public async Task<ActionResult<Result<List<PersonDto>>>> GetPersonsById(int ýd)
+        public async Task<ActionResult<Result<PersonDto>>> GetPersonsById(int ýd)
         {
             var item = _personService.GetPersonsById(new GetPersonVM { Id = ýd });
             return Ok(item);

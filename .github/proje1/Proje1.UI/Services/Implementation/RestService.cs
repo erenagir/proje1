@@ -48,7 +48,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-           // CheckResponse(response);
+            CheckResponse(response);
             return response;
         }
 
@@ -76,7 +76,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-           // CheckResponse(response);
+            CheckResponse(response);
             return response;
         }
 
@@ -108,7 +108,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-          //  CheckResponse(response);
+           CheckResponse(response);
             return response;
         }
 
@@ -139,7 +139,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-         //   CheckResponse(response);
+            CheckResponse(response);
             return response;
         }
 
@@ -162,7 +162,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-           // CheckResponse(response);
+            CheckResponse(response);
             return response;
         }
 
@@ -187,7 +187,7 @@ namespace Proje1.UI.Services.Implementation
             }
 
             var response = await restClient.ExecuteAsync<TResponse>(restRequest);
-           // CheckResponse(response);
+          CheckResponse(response);
             return response;
         }
 

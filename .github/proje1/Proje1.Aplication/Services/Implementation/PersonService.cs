@@ -86,6 +86,9 @@ namespace Proje1.Aplication.Services.Implementation
             var tokenString = GenerateJwtToken(existsPerson, expireDate);
             result.Data = new TokenDto
             {
+                Id=existsPerson.Id,
+                DepartmentId=existsPerson.departmantId,
+                Role = existsPerson.Role,
                 Token = tokenString,
                 Expiredate = expireDate,
             };

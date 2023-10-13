@@ -10,7 +10,7 @@ using Proje1.Domain.Entities;
 using Proje1.Domain.UWork;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +37,7 @@ namespace Proje1.Aplication.Services.Implementation
             _uWork.GetRepository<Company>().Add(companyEntity);
             await _uWork.ComitAsync($"{companyEntity.CompanyName}  şirketi oluşturuldu");
             result.Data = companyEntity.Id;
-       
+            _uWork.Dispose();
             return result;
             
         }
@@ -45,10 +45,12 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<List<CompanyDto>>> GetAllCompany()
         {
             var result= new Result<List<CompanyDto>>();
-            var companyEntites=await _uWork.GetRepository<Company>().GetAllAsync();
-            var companyDtos = companyEntites.ProjectTo<CompanyDto>(_mapper.ConfigurationProvider).ToList();
+            var companyEntites= await _uWork.GetRepository<Company>().GetAllAsync();
+            var companyDtos= companyEntites.ProjectTo<CompanyDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = companyDtos;
+            _uWork.Dispose();
             return result;
         }
     }
 }
+

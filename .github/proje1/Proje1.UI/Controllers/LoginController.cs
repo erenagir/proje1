@@ -37,7 +37,7 @@ namespace Proje1.UI.Controllers
                 return View(loginModel);
             }
 
-            var response = await _restService.PostAsync<LoginVM, Result<TokenDto>>(loginModel, "account/login", false);
+            var response = await _restService.PostAsync<LoginVM, Result<TokenDto>>(loginModel, "person/login", false);
 
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
@@ -51,7 +51,7 @@ namespace Proje1.UI.Controllers
                 {
                     return Redirect(ReturnUrl);
                 }
-                return RedirectToAction("Index", "Home", new { Area = "Admin" });
+                return RedirectToAction("Index", "Home");
             }
 
             return View(loginModel);

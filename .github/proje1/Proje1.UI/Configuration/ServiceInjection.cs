@@ -1,7 +1,7 @@
 ﻿using Proje1.UI.Services.Abstraction;
 using Proje1.UI.Services.Implementation;
 
-namespace Proje1.UI.Configurations
+namespace Ahlatci.Shop.UI.Configurations
 {
     public static class ServiceInjection
     {

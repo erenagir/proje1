@@ -26,7 +26,7 @@ namespace Proje1.Api.Controllers
         [HttpGet("get")]
         public async Task<ActionResult<Result<List<CompanyDto>>>> GetAllCompany()
         {
-          var item=  _service.GetAllCompany();
+          var item=await  _service.GetAllCompany();
           return Ok(item);
         }
 

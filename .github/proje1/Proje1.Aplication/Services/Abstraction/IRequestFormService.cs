@@ -18,6 +18,7 @@ namespace Proje1.Aplication.Services.Abstraction
 
         Task<Result<int>> CreateRequest(CreateRequestVM createRequestVM);
         Task<Result<int>> UpdateRequest(UpdateRequestVM updateRequestVM);
+        Task<Result<List<RequestDto>>> GetRequestByPerson();
 
 
     }

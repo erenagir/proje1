@@ -20,3 +20,25 @@ C:\Users\erenagir\Desktop\deneme\proje1\.github\proje1\Proje1.Utils\obj\Debug\ne
 C:\Users\erenagir\Desktop\deneme\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\refint\Proje1.Utils.dll
 C:\Users\erenagir\Desktop\deneme\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.pdb
 C:\Users\erenagir\Desktop\deneme\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\ref\Proje1.Utils.dll
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.deps.json
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.dll
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.pdb
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.AssemblyInfoInputs.cache
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.AssemblyInfo.cs
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.csproj.CoreCompileInputs.cache
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.dll
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\refint\Proje1.Utils.dll
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.pdb
+C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\obj\Debug\net7.0\ref\Proje1.Utils.dll
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.deps.json
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.dll
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.pdb
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.AssemblyInfoInputs.cache
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.AssemblyInfo.cs
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.csproj.CoreCompileInputs.cache
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.dll
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\refint\Proje1.Utils.dll
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\Proje1.Utils.pdb
+C:\Users\agir_\Desktop\proje1\Proje1.Utils\obj\Debug\net7.0\ref\Proje1.Utils.dll

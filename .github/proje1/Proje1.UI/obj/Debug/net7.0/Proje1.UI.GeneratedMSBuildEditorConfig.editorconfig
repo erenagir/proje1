@@ -9,49 +9,65 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Proje1.UI
 build_property.RootNamespace = Proje1.UI
-build_property.ProjectDir = C:\Users\erenagir\Desktop\deneme\proje1\.github\proje1\Proje1.UI\
+build_property.ProjectDir = C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.UI\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\erenagir\Desktop\deneme\proje1\.github\proje1\Proje1.UI
+build_property.MSBuildProjectDirectory = C:\Users\agir_\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.UI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Company/Create.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Company/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Company/List.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Company/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Home/Index.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Login/SignIn.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Login/SignIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnbkluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Shared/Error.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Request/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Request/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Request/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Request/ListOk.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxMaXN0T2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Shared/_SideBar.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Shared/_SideBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlQmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/_ViewImports.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/_ViewStart.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erenagir/Desktop/deneme/proje1/.github/proje1/Proje1.UI/Views/Shared/_Layout.cshtml]
+[C:/Users/agir_/Desktop/Yeni klasör/proje1/.github/proje1/Proje1.UI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6rlj4cqhvm

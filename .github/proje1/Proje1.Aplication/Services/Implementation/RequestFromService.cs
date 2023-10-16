@@ -41,7 +41,7 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<List<RequestDto>>> GetRequestByDepartment(GetRequestVM getrequestVM)
         {
             var result = new Result<List<RequestDto>>();
-            var requestEntity = await _uWork.GetRepository<RequestForm>().GetByFilterAsync(x=>x.Person.departmantId==getrequestVM.Id,"Person");
+            var requestEntity = await _uWork.GetRepository<RequestForm>().GetByFilterAsync(x=>x.Person.departmantId==getrequestVM.Id && x.Status==getrequestVM.Status,"Person");
             var requestDtos = requestEntity.ProjectTo<RequestDto>(_mapper.ConfigurationProvider).ToList();
 
             result.Data = requestDtos;

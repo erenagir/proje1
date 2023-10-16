@@ -1,4 +1,4 @@
-C:\Users\agir_\Desktop\proje1\Proje1.Domain\bin\Debug\net7.0\Proje1.Domain.dll
-C:\Users\agir_\Desktop\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.dll
-C:\Users\agir_\Desktop\proje1\Proje1.Domain\bin\Debug\net7.0\Proje1.Domain.pdb
-C:\Users\agir_\Desktop\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.pdb
+C:\Users\erenagir\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Domain\bin\Debug\net7.0\Proje1.Domain.dll
+C:\Users\erenagir\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.dll
+C:\Users\erenagir\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Domain\bin\Debug\net7.0\Proje1.Domain.pdb
+C:\Users\erenagir\Desktop\Yeni klasör\proje1\.github\proje1\Proje1.Utils\bin\Debug\net7.0\Proje1.Utils.pdb

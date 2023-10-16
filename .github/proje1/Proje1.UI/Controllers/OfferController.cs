@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Proje1.UI.Models;
+using Proje1.UI.Models.Dtos.Offers;
 using Proje1.UI.Models.Dtos.RequestForm;
+using Proje1.UI.Models.RequestModels.Offers;
 using Proje1.UI.Models.RequestModels.RequestForm;
 using Proje1.UI.Services.Abstraction;
 using System.Diagnostics;
@@ -13,36 +15,38 @@ namespace Proje1.UI.Controllers
     [Authorize(Policy = "Admin")]
     public class OfferController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+
 
         private IRestService _restService;
-        
         private readonly ILoggedUserService _loggedUserService;
-        public OfferController(IRestService restService, ILoggedUserService loggedUserService)
+        private readonly IMapper _mapper;
+        public OfferController(IRestService restService, ILoggedUserService loggedUserService, IMapper mapper)
         {
             _restService = restService;
-          
+
             _loggedUserService = loggedUserService;
+            _mapper = mapper;
         }
 
-        public IActionResult Create()
+     
+        public async Task<IActionResult> Create(int id)
         {
-            
-            ViewBag.Header = "talep İşlemleri";
-            ViewBag.Title = "Yeni Talep Oluştur";
-            return View();
+            var createOffer = new CreateOfferVM() { RequestformId = id };
+
+            return View(createOffer);
         }
+
         [HttpPost]
-        public async Task<IActionResult> Create(CreateRequestVM createRequestVM)
+        public async Task<IActionResult> Create(CreateOfferVM createOfferVM)
         {
             //Fluent validation içerisinde tanımlanan kurallardan bir veya birkaçı ihlal edildiyse
             if (!ModelState.IsValid)
             {
-                return View(createRequestVM);
+                return View(createOfferVM);
             }
 
             //Model validasyonu başarılı. Kaydı gerçekleştir.
-            var response = await _restService.PostAsync<CreateRequestVM, Result<bool>>(createRequestVM, "request/create");
+            var response = await _restService.PostAsync<CreateOfferVM, Result<int>>(createOfferVM, "offer/create");
 
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
@@ -51,14 +55,14 @@ namespace Proje1.UI.Controllers
             }
             else // herşey yolunda
             {
-               
-                return RedirectToAction("List", "Request");
+
+                return RedirectToAction("ListOkRequest", "Offer");
+
             }
         }
-
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(int id)
         {
-            var response = await _restService.GetAsync<Result<List<RequestDto>>>("request/getByPerson");
+            var response = await _restService.GetAsync<Result<List<OfferDto>>>($"offer/get/{id}");
 
 
             if (response.StatusCode == HttpStatusCode.BadRequest)
@@ -73,9 +77,10 @@ namespace Proje1.UI.Controllers
 
 
         }
-        public async Task<IActionResult> ListOk()
+
+        public async Task<IActionResult> ListOkRequest()
         {
-            var response = await _restService.GetAsync<Result<List<RequestDto>>>($"request/get/{_loggedUserService.DepartmentId}");
+            var response = await _restService.GetAsync<Result<List<RequestDto>>>($"request/getByApproved/{_loggedUserService.DepartmentId}");
 
 
             if (response.StatusCode == HttpStatusCode.BadRequest)
@@ -90,47 +95,12 @@ namespace Proje1.UI.Controllers
 
 
         }
-        
-        public async Task<IActionResult> Accept(int id)
-        {
 
-            var request=new UpdateRequestVM();
-            request.Status = Status.approved;
-            request.Id = id;
-            var response = await _restService.PutAsync<UpdateRequestVM, Result<int>>(request, "request/update");
 
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                ModelState.AddModelError("", response.Data.Errors[0]);
-                return View();
-            }
-            else // herşey yolunda
-            {
-                TempData["success"] = $"{response.Data.Data} numaralı kayıt başarıyla güncellendi.";
-                return RedirectToAction("ListOk", "request");
-            }
 
-        }
-        public async Task<IActionResult> Refuse(int id)
-        {
 
-            var request = new UpdateRequestVM();
-            request.Status = Status.refuse;
-            request.Id = id;
-            var response = await _restService.PutAsync<UpdateRequestVM, Result<int>>(request, "request/update");
 
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                ModelState.AddModelError("", response.Data.Errors[0]);
-                return View();
-            }
-            else // herşey yolunda
-            {
-                TempData["success"] = $"{response.Data.Data} numaralı kayıt başarıyla güncellendi.";
-                return RedirectToAction("ListOk", "request");
-            }
-
-        }
 
     }
 }
+

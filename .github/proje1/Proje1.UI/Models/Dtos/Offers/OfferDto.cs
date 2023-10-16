@@ -15,7 +15,7 @@ namespace Proje1.UI.Models.Dtos.Offers
         public string CompanyPhone { get; set; }
         public string CompanyEmail { get; set; }
         public double TotalPrice { get; set; }
-
+        public OfferStatus offerStatus { get; set; }
 
     }
 }

@@ -30,10 +30,16 @@ namespace Proje1.Api.Controllers
             return Ok(item);
         }
 
-        [HttpGet("get/{departmentId}")]
+        [HttpGet("getByPending/{departmentId}")]
         public async Task<ActionResult<Result<List<RequestDto>>>> GetRequestByDepartment(int departmentId)
         {
-            var item = await _requestFormService.GetRequestByDepartment(new GetRequestVM { Id= departmentId });
+            var item = await _requestFormService.GetRequestByDepartment(new GetRequestVM { Id= departmentId ,Status=Status.pending});
+            return Ok(item);
+        }
+        [HttpGet("getByApproved/{departmentId}")]
+        public async Task<ActionResult<Result<List<RequestDto>>>> GetRequestByDepartmentOk(int departmentId)
+        {
+            var item = await _requestFormService.GetRequestByDepartment(new GetRequestVM { Id = departmentId, Status = Status.approved });
             return Ok(item);
         }
         [HttpGet("getByPerson")]

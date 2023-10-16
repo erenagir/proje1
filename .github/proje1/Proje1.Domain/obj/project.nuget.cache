@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "59thyES6XReJfwBxckX2X/eNq/y5IQwpCaE49vLlTfxzbX3Bt9M5/K7o9ki/z4PIujKGt2x18V5y0q0xkKjxPA==",
+  "dgSpecHash": "tVa1SBhW0ktOmQd8sQBP6Whnn+0G7Alf7zbcvu1j4+jHEA7XR8zwW0wNhjdes5UwG0JBCrgez6u2J4+idWxqLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agir_\\Desktop\\Yeni klasör\\proje1\\.github\\proje1\\Proje1.Domain\\Proje1.Domain.csproj",
+  "projectFilePath": "C:\\Users\\erenagir\\Desktop\\Yeni klasör\\proje1\\.github\\proje1\\Proje1.Domain\\Proje1.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\agir_\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-    "C:\\Users\\agir_\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
-    "C:\\Users\\agir_\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
-    "C:\\Users\\agir_\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
-    "C:\\Users\\agir_\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
-    "C:\\Users\\agir_\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\erenagir\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

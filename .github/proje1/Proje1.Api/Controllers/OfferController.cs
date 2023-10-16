@@ -28,7 +28,7 @@ namespace Proje1.Api.Controllers
         [HttpGet("get/{requestId}")]
         public async Task<ActionResult<Result<List<OfferDto>>>> GetAllOffer(int requestId)
         {
-            var item = _service.GetAllOfferByRequest(new GetAllOfferByRequestVM { Id=requestId} );
+            var item =await _service.GetAllOfferByRequest(new GetAllOfferByRequestVM { Id=requestId} );
             return Ok(item);
         }
 

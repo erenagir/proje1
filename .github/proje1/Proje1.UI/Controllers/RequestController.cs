@@ -75,7 +75,7 @@ namespace Proje1.UI.Controllers
         }
         public async Task<IActionResult> ListOk()
         {
-            var response = await _restService.GetAsync<Result<List<RequestDto>>>($"request/get/{_loggedUserService.DepartmentId}");
+            var response = await _restService.GetAsync<Result<List<RequestDto>>>($"request/getByPending/{_loggedUserService.DepartmentId}");
 
 
             if (response.StatusCode == HttpStatusCode.BadRequest)

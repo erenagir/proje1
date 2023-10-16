@@ -96,6 +96,47 @@ namespace Proje1.UI.Controllers
 
         }
 
+        public async Task<IActionResult> Accept(int id)
+        {
+
+            var request = new UpdateOfferByStatusVM();
+            request.OfferStatus =OfferStatus.approved ;
+            request.Id = id;
+            var response = await _restService.PutAsync<UpdateOfferByStatusVM, Result<int>>(request, "offer/updatebyStatus");
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                ModelState.AddModelError("", response.Data.Errors[0]);
+                return View();
+            }
+            else // herşey yolunda
+            {
+                TempData["success"] = $"{response.Data.Data} numaralı kayıt başarıyla güncellendi.";
+                return RedirectToAction("ListOkRequest", "offer");
+            }
+
+        }
+        public async Task<IActionResult> Refuse(int id)
+        {
+
+            var request = new UpdateOfferByStatusVM();
+            request.OfferStatus = OfferStatus.refuse;
+            request.Id = id;
+            var response = await _restService.PutAsync<UpdateOfferByStatusVM, Result<int>>(request, "offer/updatebyStatus");
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                ModelState.AddModelError("", response.Data.Errors[0]);
+                return View();
+            }
+            else // herşey yolunda
+            {
+                TempData["success"] = $"{response.Data.Data} numaralı kayıt başarıyla güncellendi.";
+                return RedirectToAction("ListOkRequest", "offer");
+            }
+
+        }
+
 
 
 

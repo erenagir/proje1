@@ -14,7 +14,7 @@ namespace Proje1.Aplication.Services.Abstraction
     public interface IOfferService
     {
         Task<Result<List<OfferDto>>> GetAllOfferByRequest(GetAllOfferByRequestVM getAllOfferByRequestVM);
-
+        Task<Result<List<OfferDto>>> GetAllOfferByRequestOk(GetAllOfferByRequestOkVM getAllOfferByRequestVM);
 
         Task<Result<int>> CreateOffer(CreateOfferVM createOfferVM);
         Task<Result<int>> UpdateOffer(UpdateOfferVM updateOfferVM);

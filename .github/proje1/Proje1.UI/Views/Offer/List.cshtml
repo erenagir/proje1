@@ -62,7 +62,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.offerStatus)
                 </td>
-           
+
+                <td>
+                    @Html.ActionLink("Onayla","accept", "offer", new {  id=item.Id  }, new{@class="btn btn-success"}) |
+                    @Html.ActionLink("Reddet","refuse", "offer", new {  id=item.Id }, new{@class="btn btn-danger"}) |
+
+                </td>
         </tr>
 }
     </tbody>

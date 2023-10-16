@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proje1.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,6 @@ namespace Proje1.Aplication.Models.RequestModels.Offers
     {
         public int Id{ get; set; }
 
-        public double TotalPrice { get; set; }
+        public OfferStatus OfferStatus { get; set; }
     }
 }

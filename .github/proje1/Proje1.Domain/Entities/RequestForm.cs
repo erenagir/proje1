@@ -27,6 +27,7 @@ namespace Proje1.Domain.Entities
         pending=1,//bekleme
         approved,//onaylandı
         refuse,//ret 
+        ordered,
         Completed//tamamlandı
     }
 }

@@ -11,7 +11,8 @@
     {
         pending = 1,//bekleme
         approved,//onaylandı
-        refuse,//ret 
+        refuse,//ret
+        ordered,
         Completed//tamamlandı
     }
     public enum Roles

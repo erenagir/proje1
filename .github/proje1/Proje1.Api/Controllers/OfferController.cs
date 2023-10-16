@@ -24,6 +24,13 @@ namespace Proje1.Api.Controllers
         {
             _service = service;
         }
+       
+        [HttpGet("getOfferbyOk")]
+        public async Task<ActionResult<Result<List<OfferDto>>>> GetAllOfferByRequestOk()
+        {
+            var item = await _service.GetAllOfferByRequestOk(new GetAllOfferByRequestOkVM {status=OfferStatus.approved  });
+            return Ok(item);
+        }
 
         [HttpGet("get/{requestId}")]
         public async Task<ActionResult<Result<List<OfferDto>>>> GetAllOffer(int requestId)
@@ -52,6 +59,7 @@ namespace Proje1.Api.Controllers
             var item = await _service.UpdateOffer(updateOfferVM);
             return Ok(item);
         }
+    
         [HttpDelete("delete/{Id}")]
         public async Task<ActionResult<Result<int>>> DeleteOffer(int Id)
         {

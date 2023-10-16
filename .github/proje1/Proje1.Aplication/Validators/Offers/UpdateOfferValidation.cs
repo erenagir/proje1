@@ -14,8 +14,7 @@ namespace Proje1.Aplication.Validators.Offers
         {
             RuleFor(x => x.Id)
                 .NotEmpty().WithMessage("id bilgisi boş olamaz");
-            RuleFor(x=>x.TotalPrice)
-                .NotEmpty().WithMessage("id bilgisi boş olamaz");
+          
         }
     }
 }

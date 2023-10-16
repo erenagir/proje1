@@ -44,7 +44,22 @@ namespace Proje1.Aplication.Services.Implementation
             var invoiceDtos = ınvoicesEntity.ProjectTo<OfferDto>(_mapper.ConfigurationProvider).ToList();
             result.Data = invoiceDtos;
             return result;
-            
+
+        }
+        public async Task<Result<List<OfferDto>>> GetAllOfferByRequestOk(GetAllOfferByRequestOkVM getAllOfferByRequestVM)
+        {
+            //var requestExists = await _uWork.GetRepository<RequestForm>().GetById( getAllOfferByRequestVM.Id);
+            //if (requestExists is null)
+            //{
+            //    throw new NotFoundException($"{getAllOfferByRequestVM.Id} nolu talep bulunmadı");
+            //}
+
+            var result = new Result<List<OfferDto>>();
+            var ınvoicesEntity = await _uWork.GetRepository<Offer>().GetByFilterAsync(x => x.offerStatus == getAllOfferByRequestVM.status);
+            var invoiceDtos = ınvoicesEntity.ProjectTo<OfferDto>(_mapper.ConfigurationProvider).ToList();
+            result.Data = invoiceDtos;
+            return result;
+
         }
 
         [ValidationBehavior(typeof(CreateOfferValidator))]
@@ -67,7 +82,7 @@ namespace Proje1.Aplication.Services.Implementation
         public async Task<Result<int>> DeleteOffer(DeleteOfferVM deleteOfferVM)
         {
             var result = new Result<int>();
-            var existsEntity = await _uWork.GetRepository<Offer>().GetSingleByFilterAsync(x=>x.Id==deleteOfferVM.Id);
+            var existsEntity = await _uWork.GetRepository<Offer>().GetSingleByFilterAsync(x => x.Id == deleteOfferVM.Id);
             if (existsEntity is null)
             {
                 throw new NotFoundException("silinecek teklif bilgisi bulunamadı");
@@ -83,7 +98,7 @@ namespace Proje1.Aplication.Services.Implementation
         [ValidationBehavior(typeof(UpdateOfferValidation))]
         public async Task<Result<int>> UpdateOffer(UpdateOfferVM updateOfferVM)
         {
-            var existsEntity =await _uWork.GetRepository<Offer>().GetById(updateOfferVM.Id);
+            var existsEntity = await _uWork.GetRepository<Offer>().GetById(updateOfferVM.Id);
             if (existsEntity == null)
             {
                 throw new NotFoundException("teklif bilgisi bulunamadı");
@@ -99,19 +114,27 @@ namespace Proje1.Aplication.Services.Implementation
 
         public async Task<Result<int>> UpdateOffer(UpdateOfferByStatusVM updateOfferByStatusVM)
         {
-            
+
             var existsEntity = await _uWork.GetRepository<Offer>().GetSingleByFilterAsync(x => x.Id == updateOfferByStatusVM.Id);
             if (existsEntity is null)
             {
                 throw new NotFoundException("güncellenecek teklif bilgisi bulunamadı");
 
             }
+            if (updateOfferByStatusVM.offerStatus == OfferStatus.approved)
+            {
+                var existsRequest = await _uWork.GetRepository<RequestForm>().GetById(existsEntity.RequestformId);
+                existsRequest.Status = Status.ordered;
+                _uWork.GetRepository<RequestForm>().Update(existsRequest);
+            }
             existsEntity = _mapper.Map(updateOfferByStatusVM, existsEntity);
             _uWork.GetRepository<Offer>().Update(existsEntity);
-            _uWork.ComitAsync($"{existsEntity.Id} kimlik numaralı teklif güncellendi");
+            await _uWork.ComitAsync($"{existsEntity.Id} kimlik numaralı teklif güncellendi");
             var result = new Result<int>();
             result.Data = existsEntity.Id;
             return result;
+
+
 
         }
     }

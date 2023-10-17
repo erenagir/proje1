@@ -29,7 +29,7 @@ namespace Proje1.Aplication.Services.Implementation
 
         #region get_istekleri
 
-       
+
         public async Task<Result<List<InvoiceDto>>> GetAllInvoice()
         {
             var result = new Result<List<InvoiceDto>>();
@@ -85,15 +85,21 @@ namespace Proje1.Aplication.Services.Implementation
                 requestExists.Status = Status.Completed;
                 _uWork.GetRepository<RequestForm>().Update(requestExists);
             }
-            
-          
-            
-         
+
+
+
+
             var invoiceEntity = _mapper.Map<Invoice>(createInvoiceVM);
             _uWork.GetRepository<Invoice>().Add(invoiceEntity);
 
-            await _uWork.ComitAsync($"{invoiceEntity.Id} kimlik numaralı talebe fatura girişi  yapıldı");
-            MailUtils.SendMail(requestExists.Person.Email, "ürün girişi", "talebiniz tamamlanmıştır");
+            var ok = await _uWork.ComitAsync($"{invoiceEntity.RequestFormId} kimlik numaralı talebe fatura girişi  yapıldı");
+            if (ok == true)
+            {
+                MailUtils.SendMail(requestExists.Person.Email, "ürün girişi", "talebiniz tamamlanmıştır");
+
+            }
+
+
             result.Data = invoiceEntity.Id;
             return result;
         }

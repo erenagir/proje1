@@ -56,7 +56,7 @@ namespace Proje1.Aplication.Services.Implementation
             var result = new Result<int>();
             var productEntity = _mapper.Map<Product>(createProductVM);
             _uWork.GetRepository<Product>().Add(productEntity);
-            await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün oluşturuldu");
+            await _uWork.ComitAsync($"{productEntity.Name}  ürün oluşturuldu");
             result.Data = productEntity.Id;
             return result;
         }

@@ -73,7 +73,7 @@ namespace Proje1.Aplication.Services.Implementation
             }
             var offerEntity = _mapper.Map<Offer>(createOfferVM);
             _uWork.GetRepository<Offer>().Add(offerEntity);
-            await _uWork.ComitAsync($"{offerEntity.Id} kimlik numralı teklif teklif oluşturuldu");
+            await _uWork.ComitAsync("teklif oluşturuldu");
             result.Data = offerEntity.Id;
             return result;
         }

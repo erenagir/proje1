@@ -66,7 +66,7 @@ namespace Proje1.Aplication.Services.Implementation
             var requestEntity = _mapper.Map<RequestForm>(createRequestVM);
             requestEntity.PersonId =(int) _loggedUserService.UserId;
             _uWork.GetRepository<RequestForm>().Add(requestEntity);
-            await _uWork.ComitAsync($"{requestEntity.Id} kimlik numaralı istek oluşturuldu");
+            await _uWork.ComitAsync($"{requestEntity.Name}   istek oluşturuldu");
             result.Data = requestEntity.Id;
             return result;
         }

@@ -115,7 +115,7 @@ namespace Proje1.Aplication.Services.Implementation
 
             _uWork.GetRepository<Person>().Add(userEntity);
 
-            result.Data = await _uWork.ComitAsync($"{userEntity.Id} kimlik numaralı kullanıcı oluşturuldu");
+            result.Data = await _uWork.ComitAsync($"{userEntity.UserName}   kullanıcısı oluşturuldu");
 
             return result;
         }

@@ -27,19 +27,19 @@ namespace Proje1.Api.Controllers
         [HttpGet("get")]
         public async Task<ActionResult<Result<List<CompanyDto>>>> GetAllReport()
         {
-          var item=  _service.GetAllReport();
+          var item= await  _service.GetAllReport();
           return Ok(item);
         }
         [HttpGet("getbyPerson/{PersonId}")]
         public async Task<ActionResult<Result<List<CompanyDto>>>> GetReportbyPerson(int PersonId)
         {
-            var item = _service.GetReportByPerson(new GetReportVM { Id = PersonId });
+            var item = await _service.GetReportByPerson(new GetReportVM { Id = PersonId });
             return Ok(item);
         }
         [HttpGet("getbyDepartment/{DepartmentId}")]
         public async Task<ActionResult<Result<List<CompanyDto>>>> GetReportByDepartment(int DepartmentId)
         {
-            var item = _service.GetReporByDepartment(new GetReportVM { Id = DepartmentId });
+            var item = await _service.GetReporByDepartment(new GetReportVM { Id = DepartmentId });
             return Ok(item);
         }
 

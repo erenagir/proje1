@@ -28,7 +28,7 @@ namespace Proje1.Api.Controllers
         [HttpGet("getByDepartment/{departmentId}")]
         public async Task<ActionResult<Result<List<ProductDto>>>> GetProductsByDepartment(int departmentId)
         {
-            var products = _productSevice.GetAllProductsByDepartment(new GetProductVM { Id = departmentId });
+            var products =await _productSevice.GetAllProductsByDepartment(new GetProductVM { Id = departmentId });
             return Ok(products);
         }
         [HttpGet("getbyCompany/{companyId}")]

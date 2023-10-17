@@ -63,22 +63,24 @@ namespace Proje1.Aplication.Services.Implementation
 
 
 
-        public async Task<Result<bool>> UseProduct(UpdateProductVM updateProductVM)
+        public async Task<Result<int>> UseProduct(UpdateProductVM updateProductVM)
         {
-            var result = new Result<bool>();
+            var result = new Result<int>();
             var productEntity = await _uWork.GetRepository<Product>().GetById(updateProductVM.Id);
             productEntity.Stock -= updateProductVM.Stock;
             _uWork.GetRepository<Product>().Update(productEntity);
-            result.Data = await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün kullanıldı");
+            await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün kullanıldı");
+            result.Data = productEntity.Id;
             return result;
         }
-        public async Task<Result<bool>> AddProduct(UpdateProductVM updateProduct)
+        public async Task<Result<int>> AddProduct(UpdateProductVM updateProduct)
         {
-            var result = new Result<bool>();
+            var result = new Result<int>();
             var productEntity = await _uWork.GetRepository<Product>().GetById(updateProduct.Id);
             productEntity.Stock += updateProduct.Stock;
             _uWork.GetRepository<Product>().Update(productEntity);
-            result.Data = await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün stok eklemsi yapıldı");
+            await _uWork.ComitAsync($"{productEntity.Id} kimlik numaralı ürün stok eklemsi yapıldı");
+            result.Data = productEntity.Id;
             return result;
         }
 
